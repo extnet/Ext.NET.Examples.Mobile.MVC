@@ -1,0 +1,111 @@
+﻿@{
+    var X = Html.X();
+}
+
+@(X.Container()
+    .LayoutConfig(new VBoxLayoutConfig
+    {
+        Pack = BoxPack.Center,
+        Align = BoxAlign.Stretch
+    })
+    .Items(
+        X.Container()
+            .Flex(1)
+            .LayoutConfig(new HBoxLayoutConfig { Align = BoxAlign.Center })
+            .Defaults(new
+            {
+                flex = 1,
+                margin = 10
+            })
+            .Items(
+                X.Button()
+                    .Text("Normal")
+                    .Handler("Ext.toast('User tapped Normal', 500);"),
+
+                X.Button()
+                    .Text("Round")
+                    .UI(ButtonUI.Round)
+                    .Handler("Ext.toast('User tapped Round', 500);"),
+
+                X.Button()
+                    .Text("Small")
+                    .UIName("small")
+                    .Handler("Ext.toast('User tapped Small', 500);")
+            ),
+
+        X.Container()
+            .Flex(1)
+            .LayoutConfig(new HBoxLayoutConfig { Align = BoxAlign.Center })
+            .Defaults(new
+            {
+                flex = 1,
+                margin = 10
+            })
+            .Items(
+                X.Button()
+                    .Text("Action")
+                    .UI(ButtonUI.Action)
+                    .Handler("Ext.toast('User tapped Action', 500);"),
+
+                X.Button()
+                    .Text("Round")
+                    .UI(ButtonUI.ActionRound)
+                    .Handler("Ext.toast('User tapped Action Round', 500);"),
+
+                X.Button()
+                    .Text("Small")
+                    .UIName("action small")
+                    .Handler("Ext.toast('User tapped Action Small', 500);")
+                ),
+
+        X.Container()
+            .Flex(1)
+            .LayoutConfig(new HBoxLayoutConfig { Align = BoxAlign.Center })
+            .Defaults(new
+            {
+                flex = 1,
+                margin = 10
+            })
+            .Items(
+                X.Button()
+                    .Text("Decline")
+                    .UI(ButtonUI.Decline)
+                    .Handler("Ext.toast('User tapped Decline', 500);"),
+
+                X.Button()
+                    .Text("Round")
+                    .UI(ButtonUI.DeclineRound)
+                    .Handler("Ext.toast('User tapped Decline Round', 500);"),
+
+                X.Button()
+                    .Text("Small")
+                    .UIName("decline small")
+                    .Handler("Ext.toast('User tapped Decline Small', 500);")
+                ),
+
+        X.Container()
+            .Flex(1)
+            .LayoutConfig(new HBoxLayoutConfig { Align = BoxAlign.Center })
+            .Defaults(new
+            {
+                flex = 1,
+                margin = 10
+            })
+            .Items(
+                X.Button()
+                    .Text("Confirm")
+                    .UI(ButtonUI.Confirm)
+                    .Handler("Ext.toast('User tapped Confirm', 500);"),
+
+                X.Button()
+                    .Text("Round")
+                    .UI(ButtonUI.ConfirmRound)
+                    .Handler("Ext.toast('User tapped Confirm Round', 500);"),
+
+                X.Button()
+                    .Text("Small")
+                    .UIName("confirm small")
+                    .Handler("Ext.toast('User tapped Confirm Small', 500);")
+            )
+    )
+)

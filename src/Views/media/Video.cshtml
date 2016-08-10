@@ -1,0 +1,22 @@
+﻿@{
+    var X = Html.X();
+}
+
+@(X.Panel()
+    .Cls("card")
+    .Listeners(events =>
+    {
+        events.Hide.Handler = "this.down('video').fireEvent('hide');";
+        events.Show.Handler = "this.down('video').fireEvent('show');";
+    })
+    .Items(
+        X.Video()
+                .PosterUrl("resources/images/bigbuckvideo_cover.jpg")
+                .Loop(true)
+                    .UrlList(new string[]
+                    {
+                        "resources/video/BigBuck.m4v",
+                        "resources/video/BigBuck.webm"
+                    })
+    )
+)

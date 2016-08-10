@@ -1,0 +1,42 @@
+﻿@{
+    var X = Html.X();
+}
+
+@(X.Container()
+    .Cls("cards")
+    .LayoutConfig(new VBoxLayoutConfig { Align = BoxAlign.Stretch })
+    .Defaults(new { flex = 1 })
+    .Items(
+        X.Carousel()
+            .Items(
+                X.Component()
+                    .Html("<p>Swipe left to show the next card&hellip;</p>")
+                    .Cls("card"),
+
+                X.Component()
+                    .Html("<p>You can also tap on either side of the indicators.</p>")
+                    .Cls("card"),
+
+                X.Component()
+                    .Html("Card #3")
+                    .Cls("card")
+            ),
+
+        X.Carousel()
+            .UI(CarouselUI.Light)
+            .Direction(CarouselDirection.Vertical)
+            .Items(
+                X.Component()
+                    .Html("<p>Carousels can also be vertical <em>(swipe up)&hellip;</p>")
+                    .Cls("card dart"),
+
+                X.Component()
+                    .Html("And can also use <code>UI=&quot;Light&quot;</code>.")
+                    .Cls("card dark"),
+
+                X.Component()
+                    .Html("Card #3")
+                    .Cls("card dark")
+            )
+    )
+)

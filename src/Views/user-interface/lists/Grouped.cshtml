@@ -1,0 +1,42 @@
+﻿@{
+    var X = Html.X();
+
+    var rv = new List<object>();
+
+    for (var x = 1; x < 200; x++)
+    {
+        rv.Add(new
+        {
+            FirstChar = Convert.ToChar(x % 26 + 65),
+            FirstName = Convert.ToChar(x % 26 + 65) + ".Firstname" + x,
+            LastName = "Lastname" + x
+        });
+    }
+
+    var people = rv.ToArray();
+}
+
+@(X.Container()
+    .CustomConfig(cc =>
+        cc.Add(new ConfigItem
+        {
+            Name = "layout",
+            Value = "Ext.os.deviceType == 'Phone' ? 'fit' : { type: 'vbox', align: 'center', pack:'center' }",
+            Mode = ParameterMode.Raw
+        })
+    )
+    .Items(
+        X.List()
+            .Grouped(true)
+            .PinHeaders(true)
+            .ItemTpl(X.XTemplate()
+                .Html("{FirstName} {LastName}")
+            )
+            .IndexBar(X.IndexBar().StyleSpec("font-size: 30px; background: rgba(30,30,30, 0.1)"))
+            .Store(X.Store()
+                .DataSource(people)
+                .Fields("FirstChar", "FirstName", "LastName")
+                .GroupField("FirstChar")
+            )
+    )
+)

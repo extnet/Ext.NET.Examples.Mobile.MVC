@@ -1,0 +1,48 @@
+﻿@{
+    var X = Html.X();
+
+    var data = new List<object>
+    {
+        new
+        {
+            name = "Lisa",
+            email = "lisa@simpsons.com",
+            phone = "555-111-1224"
+        },
+
+        new
+        {
+            name = "Bart",
+            email = "bart@simpsons.com",
+            phone = "555-222-1234"
+        },
+
+        new
+        {
+            name = "Homer",
+            email = "homer@simpsons.com",
+            phone = "555-222-1244"
+        },
+
+        new
+        {
+            name = "Marge",
+            email = "marge@simpsons.com",
+            phone = "555-222-1254"
+        }
+    };
+}
+
+@(X.Grid()
+    .Title("Simpsons")
+    .Store(X.Store()
+        .DataSource(data)
+        .Fields("name", "email", "phone")
+    )
+    .Columns(
+        X.Column().Text("Name").DataIndex("name").Width(200),
+        X.Column().Text("Email").DataIndex("email").Width(250),
+        X.Column().Text("Phone").DataIndex("phone").Width(150)
+    )
+    .Plugins(X.MultiSelectionGrid())
+)

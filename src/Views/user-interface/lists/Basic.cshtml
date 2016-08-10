@@ -1,0 +1,37 @@
+﻿@{
+    var X = Html.X();
+
+    var rv = new List<object>();
+
+    for (var x = 1; x < 50; x++)
+    {
+        rv.Add(new
+        {
+            FirstName = "Firstname" + x,
+            LastName = "Lastname" + x
+        });
+    }
+
+    var people = rv.ToArray();
+}
+
+@(X.Container()
+    .CustomConfig(cc =>
+        cc.Add(new ConfigItem
+        {
+            Name = "layout",
+            Value = "Ext.os.deviceType == 'Phone' ? 'fit' : { type: 'vbox', align: 'center', pack:'center' }",
+            Mode = ParameterMode.Raw
+        })
+    )
+    .Items(
+        X.List()
+            .ItemTpl(X.XTemplate()
+                .Html("{FirstName} {LastName}")
+            )
+            .Store(X.Store()
+                .DataSource(people)
+                .Fields("FirstName", "LastName")
+            )
+    )
+)

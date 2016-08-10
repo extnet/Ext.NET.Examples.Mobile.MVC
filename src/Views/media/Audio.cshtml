@@ -1,0 +1,57 @@
+﻿@{
+    var X = Html.X();
+
+    var panel =
+        X.Panel()
+            .Cls("card")
+            .Listeners(events =>
+            {
+                events.Hide.Handler = @"this.down('audio').fireEvent('hide');
+                                        if (this.down('button')) {
+                                            this.down('button').setText('Play audio');
+                                        }";
+
+                events.Show.Handler = "this.down('audio').fireEvent('show');";
+            })
+            .Items(items =>
+            {
+                items.Add(X.Audio()
+                    .Url("resources/audio/crash.mp3")
+                    .Loop(true)
+                    .Cls("myAudio"));
+
+                if (RequestManager.IsAndroid)
+                {
+                    items.Add(new Ext.Net.Mobile.Button()
+                    {
+                        ID = "playbtn",
+                        Text = "Play audio",
+                        Handler = @"var audio = this.up().down('audio');
+                                    if (audio.isPlaying()) {
+                                        audio.pause();
+                                        this.setText('Play audio');
+                                    } else {
+                                        audio.play();
+                                        this.setText('Pause audio');
+                                    };"
+                    });
+                }
+            })
+            .LayoutConfig(lc =>
+            {
+                if (RequestManager.IsAndroid)
+                {
+                    lc.Add(new VBoxLayoutConfig
+                    {
+                        Pack = BoxPack.Center,
+                        Align = BoxAlign.Center
+                    });
+                }
+                else
+                {
+                    lc.Add(new FitLayoutConfig());
+                }
+            });
+}
+
+@panel

@@ -1,0 +1,46 @@
+﻿@{
+    var X = Html.X();
+
+    var data = new List<object>
+    {
+        new
+        {
+            name = "Lisa"
+        },
+
+        new
+        {
+            name = "Bart"
+        },
+
+        new
+        {
+            name = "Homer"
+        },
+
+        new
+        {
+            name = "Marge"
+        }
+    };
+}
+
+@(X.Grid()
+    .Title("Simpsons")
+    .Store(X.Store()
+        .DataSource(data)
+        .Fields("name")
+    )
+    .Columns(
+        X.Column()
+            .Text("Name")
+            .DataIndex("name")
+            .Width(200)
+            .Renderer("return value + ' Simpson';"),
+
+        X.Column()
+            .Text("Email")
+            .Width(200)
+            .Tpl(X.XTemplate().Html("{name:lowercase}@simpsons.com"))
+    )
+)

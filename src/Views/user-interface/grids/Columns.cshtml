@@ -1,0 +1,72 @@
+﻿@{
+    var X = Html.X();
+
+    var data = new List<object>
+    {
+        new
+        {
+            name = "Item 1",
+            amount = 1000,
+            visible = true,
+            duedate = DateTime.Now
+        },
+
+        new
+        {
+            name = "Item 2",
+            amount = 500,
+            visible = false,
+            duedate = DateTime.Now.AddDays(5)
+        },
+
+        new
+        {
+            name = "Item 3",
+            amount = 1550,
+            visible = false,
+            duedate = DateTime.Now.AddMonths(1)
+        },
+
+        new
+        {
+            name = "Item 4",
+            amount = 700,
+            visible = true,
+            duedate = DateTime.Now.AddYears(1)
+        }
+    };
+}
+
+@(X.Grid()
+    .Title("Simpsons")
+    .Store(X.Store()
+        .DataSource(data)
+        .Fields(
+            X.ModelField().Name("name").Type(ModelFieldType.String),
+            X.ModelField().Name("amount").Type(ModelFieldType.Int),
+            X.ModelField().Name("visible").Type(ModelFieldType.Boolean),
+            X.ModelField().Name("duedate").Type(ModelFieldType.Date)
+        )
+    )
+    .Columns(
+        X.Column()
+            .Text("String")
+            .DataIndex("name"),
+
+        X.NumberColumn()
+            .Text("Number")
+            .DataIndex("amount")
+            .Width(110),
+
+        X.BooleanColumn()
+            .Text("Boolean")
+            .DataIndex("visible")
+            .Width(110)
+            .Align(Alignment.Center),
+
+        X.DateColumn()
+            .Text("Date")
+            .DataIndex("duedate")
+            .Width(150)
+    )
+)

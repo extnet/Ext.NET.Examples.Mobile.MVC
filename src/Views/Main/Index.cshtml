@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Ext.NET Mobile MVC Examples</title>
+
+    <link rel="stylesheet" href="@Url.Content("~/resources/css/KitchenSink-all.css")" />
+
+    <style>
+        .links-menu {
+            background-color: #2a333c;
+        }
+
+            .links-menu a {
+                color: #b0bcc7;
+                text-decoration: none;
+            }
+    </style>
+
+    <script src="@Url.Content("~/resources/js/classes/StoreDemos.js")"></script>
+    <script src="@Url.Content("~/resources/js/classes/SourceOverlay.js")"></script>
+    <script src="@Url.Content("~/resources/js/main.js")"></script>
+</head>
+<body>
+    @Html.X().ResourceManager().Theme(Theme.Triton)
+
+    @{
+        // Preloading for smoother loading of Charts and Draw components
+        ResourceManager.RegisterControlResources<DrawContainer>();
+    }
+
+    @(Html.X().Menu()
+        .ID("LinksMenu")
+        .Side(Direction.Right)
+        .Cls("links-menu")
+        .WidthSpec("40%")
+        .Items(
+            Html.X().Component().Html("<a href='http://ext.net'>Ext.NET Home</a>"),
+            Html.X().Component().Html("<a href='http://forums.ext.net'>Forums</a>"),
+            Html.X().Component().Html("<a href='http://ext.net/download'>Download</a>")
+        )
+    )
+
+    @(Html.X().NestedList()
+        .ID("MainNestedList")
+        .UseTitleAsBackText(false)
+        .StoreID("Demos")
+        .Title("Ext.NET Mobile MVC")
+        .TemplateWidget(true)
+        .Toolbar(Html.X().TitleBar()
+            .ID("MainNavigationBar")
+            .Docked(Dock.Top)
+            .Items(
+                Html.X().Button()
+                    .ID("ViewSourceButton")
+                    .Hidden(true)
+                    .Align(TitleBarItemAlign.Right)
+                    .UI(ButtonUI.Action)
+                    .Text("Source"),
+
+                Html.X().Button()
+                    .ID("MenuButton")
+                    .Align(TitleBarItemAlign.Right)
+                    .IconCls("x-fa fa-navicon")
+                    .MarginSpec("0 0 0 5")
+            )
+        )
+    )
+</body>
+</html>
