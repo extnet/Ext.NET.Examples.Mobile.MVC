@@ -35,7 +35,7 @@ Ext.define('KitchenSink.store.Demos', {
                 text: 'User Interface',
                 id: 'ui',
                 cls: 'launchscreen',
-                items: [{
+                items: [/*{
                     text: 'Tree',
                     leaf: true,
                     view: 'user-interface.TreeList',
@@ -44,7 +44,7 @@ Ext.define('KitchenSink.store.Demos', {
                         type: 'JavaScript',
                         path: 'resources/js/examples/treelist.js'
                     }]
-                }, {
+                },*/ {
                     text: 'Buttons',
                     leaf: true,
                     view: 'user-interface.Buttons',
@@ -79,7 +79,7 @@ Ext.define('KitchenSink.store.Demos', {
                         view: 'user-interface.grids.Columns',
                         id: 'gridcolumns'
                     }]
-                }, {
+                }/*, {
                     text: 'Forms',
                     leaf: false,
                     id: 'forms',
@@ -145,7 +145,7 @@ Ext.define('KitchenSink.store.Demos', {
                             path: 'Models/KitchenSink/Speaker.cs'
                         }]
                     }]
-                }, {
+                }*/, {
                     text: 'Lists',
                     leaf: false,
                     id: 'lists',
@@ -164,7 +164,7 @@ Ext.define('KitchenSink.store.Demos', {
                         leaf: true,
                         view: 'user-interface.lists.Disclosure',
                         id: 'disclosurelist'
-                    }, {
+                    }/*, {
                         text: 'Paging',
                         leaf: true,
                         view: 'user-interface.lists.Paging',
@@ -196,8 +196,8 @@ Ext.define('KitchenSink.store.Demos', {
                         leaf: true,
                         view: 'user-interface.lists.Sortable',
                         id: 'sortablelist'
-                    }]
-                }, {
+                    }*/]
+                }/*, {
                     text: 'Nested Lists',
                     leaf: false,
                     id: 'nestedlists',
@@ -217,12 +217,12 @@ Ext.define('KitchenSink.store.Demos', {
                     leaf: true,
                     view: 'user-interface.Toolbars',
                     id: 'toolbars'
-                }, {
+                }*/, {
                     text: 'Carousel',
                     leaf: true,
                     view: 'user-interface.Carousel',
                     id: 'carousel'
-                }, {
+                }/*, {
                     text: 'Tabs',
                     leaf: true,
                     view: 'user-interface.Tabs',
@@ -242,8 +242,8 @@ Ext.define('KitchenSink.store.Demos', {
                     view: 'user-interface.Menus',
                     leaf: true,
                     id: 'menus'
-                }]
-            }, {
+                }*/]
+            }/*, {
                 text: 'Data Binding',
                 id: 'databinding',
                 items: [{
@@ -266,12 +266,12 @@ Ext.define('KitchenSink.store.Demos', {
                     leaf: true,
                     id: 'binding-twowayformula',
                     view: 'binding.TwoWayFormula'
-                }, /*{
+                }, {
                     text: 'Chained Select',
                     leaf: true,
                     id: 'binding-chainedselect',
                     view: 'binding.ChainedSelect'
-                },*/ {
+                }, {
                     text: 'Component State',
                     leaf: true,
                     id: 'binding-componentstate',
@@ -558,12 +558,12 @@ Ext.define('KitchenSink.store.Demos', {
             }, {
                 text: 'Data',
                 id: 'data',
-                items: [/*{
+                items: [{
                     text: 'Nested Loading',
                     view: 'NestedLoading',
                     leaf: true,
                     id: 'nestedloading'
-                }, */{
+                }, {
                     text: 'JSONP',
                     leaf: true,
                     id: 'jsonp',
@@ -577,8 +577,8 @@ Ext.define('KitchenSink.store.Demos', {
                     text: 'Ajax',
                     leaf: true,
                     id: 'ajax'
-                }*/]
-            }, {
+                }]
+            }*/, {
                 text: 'Media',
                 id: 'media',
                 items: [{
@@ -662,7 +662,7 @@ Ext.define('KitchenSink.store.Demos', {
                     id: 'graytheme',
                     profileName: 'gray'
                 }]
-            }*/, {
+            }*//*, {
                 text: 'Graphics',
                 id: 'graphics',
                 items: [{
