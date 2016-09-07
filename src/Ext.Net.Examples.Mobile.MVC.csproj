@@ -166,6 +166,7 @@
     <Content Include="Views\user-interface\TreeList.cshtml" />
     <Content Include="Views\user-interface\forms\FormPanel.cshtml" />
     <Content Include="Views\user-interface\forms\Sliders.cshtml" />
+    <Content Include="Views\user-interface\forms\ToolbarInput.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\ExtNetMobileConfig.cs" />

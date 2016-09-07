@@ -1,0 +1,45 @@
+﻿@{
+    var X = Html.X();
+}
+
+@(
+    X.Panel()
+        .StyleHtmlContent(true)
+        .Html("This is a simple example of fields within toolbars.")
+        .Items(
+            X.Toolbar()
+                .Docked(Dock.Top)
+                .Items(
+                    X.SearchField()
+                        .PlaceHolder("Search")
+                        .Name("searchfield")
+                ),
+            X.Toolbar()
+                .Docked(Dock.Top)
+                .UIName("light")
+                .Items(
+                    X.TextField()
+                        .Width(100)
+                        .PlaceHolder("Text")
+                        .Name("textfield"),
+                    X.ToggleField()
+                        .Name("toggle")
+                ),
+            X.Toolbar()
+                .Docked(Dock.Bottom)
+                .Items(
+                    X.ToolbarSpacer(),
+                    X.SelectField()
+                        .Name("options")
+                        .Options(
+                            X.ListItem()
+                                .Text("This is just a big select with super long option")
+                                .Value("1"),
+                            X.ListItem()
+                                .Text("Another select item")
+                                .Value("2")
+                        ),
+                    X.ToolbarSpacer()
+                )
+        )
+)
