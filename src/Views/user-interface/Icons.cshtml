@@ -1,0 +1,99 @@
+﻿@{
+    var X = Html.X();
+}
+
+@*
+    * If tab panel is added inside a panel, must specify its height manually.
+    * If tab panel (like below) is defined directly, not specifying height works
+    *  but tab body is not displayed (even if height is specified!).
+*@
+@(
+ X.TabPanel()
+        .ActiveTabIndex(0)
+        .Cls("card")
+        .LayoutConfig(lc => lc.Add(new LayoutConfig()
+        {
+            CustomConfig = { new ConfigItem()
+            {
+                Name = "animation",
+                Value = "{ type: 'slide', duration: 250 }",
+                Mode = ParameterMode.Raw
+            }}
+        }))
+        .TabBarConfig(
+            X.TabBar()
+                .Docked(Dock.Bottom)
+                .Scrollable(ScrollableOption.Disabled)
+        )
+        .Defaults(
+            X.Parameter()
+                .Name("scrollable")
+                .Value("true")
+                .Mode(ParameterMode.Raw)
+        )
+        .Items(
+            X.Panel()
+                .Title("Info")
+                .Cls("card")
+                .Html("Tabs and buttons can display any <a href='http://fortawesome.github.io/Font-Awesome/icons/'>Font Awesome</a> icon using the <code>iconCls</code> config.")
+                .IconCls("x-fa fa-info-circle"),
+            X.Panel()
+                .Title("Download")
+                .Cls("card dark")
+                .Html("<span class=&quot;action&quot;>User tapped Download</span>")
+                .IconCls("x-fa fa-download"),
+            X.Panel()
+                .Title("Favorites")
+                .Cls("card")
+                .Html("<span class=&quot;action&quot;>User tapped Favorites</span>")
+                .IconCls("x-fa fa-star")
+                .CustomConfig(c => c.Add(new ConfigItem()
+                {
+                    Name = "hidden",
+                    Value = "(Ext.filterPlatform('ie10') && Ext.os.is.Phone) ? true : false",
+                    Mode = ParameterMode.Raw
+                })),
+            X.Panel()
+                .Title("Bookmarks")
+                .Cls("card dark")
+                .Html("<span class=&quot;action&quot;>User tapped Bookmarks</span>")
+                .IconCls("x-fa fa-bookmark"),
+            X.Panel()
+                .Title("More")
+                .Cls("card")
+                .Html("<span class=&quot;action&quot;>User tapped More</span>")
+                .IconCls("x-fa fa-ellipsis-h"),
+            X.Toolbar()
+                .Docked(Dock.Top)
+                .UIName("neutral")
+                .LayoutConfig(lc => lc.Add(new LayoutConfig()
+                {
+                    CustomConfig = { new ConfigItem()
+                    {
+                        Name = "pack",
+                        Value = "(Ext.filterPlatform('ie10') && !Ext.os.is.Phone) ? 'start' : 'center'",
+                        Mode = ParameterMode.Raw
+                    }}
+                }))
+                .Items(
+                    X.Button()
+                        .IconCls("x-fa fa-check")
+                        .UIName("plain"),
+                    X.Button()
+                        .IconCls("x-fa fa-plus")
+                        .UIName("plain"),
+                    X.Button()
+                        .IconCls("x-fa fa-pencil-square-o")
+                        .UIName("plain"),
+                    X.Button()
+                        .IconCls("x-fa fa-times")
+                        .UIName("plain"),
+                    X.Button()
+                        .IconCls("x-fa fa-refresh")
+                        .UIName("plain"),
+                    X.Button()
+                        .IconCls("x-fa fa-reply")
+                        .UIName("plain")
+                )
+        )
+)

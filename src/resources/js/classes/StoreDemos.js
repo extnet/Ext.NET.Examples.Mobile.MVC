@@ -207,12 +207,12 @@ Ext.define('KitchenSink.store.Demos', {
                         leaf: true,
                         id: 'nestedlistbasic'
                     }]
-                }, {
+                }*/, {
                     text: 'Icons',
                     leaf: true,
                     view: 'user-interface.Icons',
                     id: 'icons'
-                }, {
+                }/*, {
                     text: 'Toolbars',
                     leaf: true,
                     view: 'user-interface.Toolbars',
