@@ -1,0 +1,155 @@
+﻿@{
+    var X = Html.X();
+}
+
+@(
+ X.FormPanel()
+        .ID("basicform")
+        .Items(
+            X.FieldSet()
+                .ID("fieldset1")
+                .Title("Personal Info")
+                .Instructions("Please enter the information above.")
+                .Defaults(
+                    X.Parameter()
+                        .Name("labelWidth")
+                        .Value("35%")
+                )
+                .Items(
+                    X.TextField()
+                        .Name("name")
+                        .Label("Name")
+                        .PlaceHolder("Tom Roy")
+                        .AutoCapitalize(true)
+                        .Required(true)
+                        .ClearIcon(true),
+                    X.PasswordField()
+                        .Name("password")
+                        .Label("Password")
+                        .ClearIcon(true)
+                        .CustomConfig(c => c.Add(new ConfigItem() { Name = "revealable", Value = "true" })),
+                    X.EmailField()
+                        .Name("email")
+                        .Label("Email")
+                        .PlaceHolder("me@ext.net")
+                        .ClearIcon(true),
+                    X.UrlField()
+                        .Name("url")
+                        .Label("Url")
+                        .PlaceHolder("http://ext.net/")
+                        .ClearIcon(true),
+                    X.SpinnerField()
+                        .Name("spinner")
+                        .Label("Spinner")
+                        .MinValue(0)
+                        .MaxValue(10)
+                        .StepValue(1)
+                        .Cycle(true),
+                    X.Checkbox()
+                        .Name("cool")
+                        .Label("Cool"),
+                    X.DatePickerField()
+                        .DestroyPickerOnHide(true)
+                        .Name("date")
+                        .Label("Start Date")
+                        .Picker(
+                            X.DatePicker()
+                                .YearFrom(1990)
+                                .DateValue(new DateTime(2016, 6, 24))
+                        ),
+                    X.SelectField()
+                        .Name("rank")
+                        .Label("Rank")
+                        .Options(
+                            X.ListItem()
+                                .Text("Master")
+                                .Value("master"),
+                            X.ListItem()
+                                .Text("Journeyman")
+                                .Value("journeyman"),
+                            X.ListItem()
+                                .Text("Apprentice")
+                                .Value("apprentice")
+                        ),
+                    X.Slider()
+                        .Name("slider")
+                        .Label("Slider"),
+                    X.ToggleField()
+                        .Name("toggle")
+                        .Label("Toggle"),
+                    X.TextArea()
+                        .Name("bio")
+                        .Label("Bio")
+                ),
+                X.FieldSet()
+                    .ID("fieldset2")
+                    .Title("Favorite color")
+                    .Defaults(
+                        X.Parameter()
+                            .Name("labelWidth")
+                            .Value("35%")
+                    )
+                    .Items(
+                        X.Radio()
+                            .Name("color")
+                            .Label("Red")
+                            .Value("red"),
+                        X.Radio()
+                            .Name("color")
+                            .Label("Blue")
+                            .Value("blue"),
+                        X.Radio()
+                            .Name("color")
+                            .Label("Green")
+                            .Value("green"),
+                        X.Radio()
+                            .Name("color")
+                            .Label("Purple")
+                            .Value("purple")
+                    ),
+                X.Container()
+                    .Defaults(d =>
+                    {
+                        d.Add(X.Parameter()
+                            .Name("style")
+                            .Value("margin: 1em"));
+                        d.Add(X.Parameter()
+                            .Name("flex")
+                            .Value("1")
+                            .Mode(ParameterMode.Raw));
+                    })
+                    .Items(
+                        X.Button()
+                            .ID("formToggleBtn")
+                            .Text("Disable fields")
+                            .UI(ButtonUI.Action)
+                            .Scope("this")
+                            .Handler(@"
+                                var fieldset1 = Ext.getCmp('fieldset1'),
+                                    fieldset2 = Ext.getCmp('fieldset2'),
+                                    btn = App.formToggleBtn;
+
+                                if (btn.hasDisabled) {
+                                    fieldset1.enable();
+                                    fieldset2.enable();
+                                    btn.hasDisabled = false;
+                                    btn.setText('Disable fields');
+                                } else {
+                                    fieldset1.disable();
+                                    fieldset2.disable();
+                                    btn.hasDisabled = true;
+                                    btn.setText('Enable fields');
+                                }")
+                            .CustomConfig(c => c.Add(new ConfigItem()
+                            {
+                                Name = "hasDisabled",
+                                Value = "false",
+                                Mode = ParameterMode.Raw
+                            })),
+                        X.Button()
+                            .Text("Reset")
+                            .UI(ButtonUI.Action)
+                            .Handler("Ext.getCmp('basicform').reset();")
+                    )
+        )
+)

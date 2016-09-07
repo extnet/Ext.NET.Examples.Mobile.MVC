@@ -164,6 +164,7 @@
     <Content Include="resources\video\BigBuck.m4v" />
     <Content Include="Web.config" />
     <Content Include="Views\user-interface\TreeList.cshtml" />
+    <Content Include="Views\user-interface\forms\FormPanel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\ExtNetMobileConfig.cs" />
@@ -184,7 +185,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
-    <Folder Include="Views\user-interface\forms\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Main\Index.cshtml" />

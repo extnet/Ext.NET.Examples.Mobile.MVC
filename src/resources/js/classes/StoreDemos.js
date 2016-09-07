@@ -79,7 +79,7 @@ Ext.define('KitchenSink.store.Demos', {
                         view: 'user-interface.grids.Columns',
                         id: 'gridcolumns'
                     }]
-                }/*, {
+                }, {
                     text: 'Forms',
                     leaf: false,
                     id: 'forms',
@@ -88,7 +88,7 @@ Ext.define('KitchenSink.store.Demos', {
                         leaf: true,
                         view: 'user-interface.forms.FormPanel',
                         id: 'formpanel'
-                    }, {
+                    }/*, {
                         text: 'Sliders',
                         leaf: true,
                         view: 'user-interface.forms.Sliders',
@@ -103,8 +103,8 @@ Ext.define('KitchenSink.store.Demos', {
                         leaf: true,
                         view: 'user-interface.forms.PlaceHolderLabel',
                         id: 'placeholderlabel'
-                    }]
-                }, {
+                    }*/]
+                }/*, {
                     text: 'DataViews',
                     leaf: false,
                     id: 'dataviews',
