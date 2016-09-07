@@ -173,6 +173,7 @@
     <Content Include="Views\user-interface\Icons.cshtml" />
     <Content Include="Views\user-interface\Toolbars.cshtml" />
     <Content Include="Views\user-interface\Tabs.cshtml" />
+    <Content Include="Views\user-interface\BottomTabs.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\ExtNetMobileConfig.cs" />

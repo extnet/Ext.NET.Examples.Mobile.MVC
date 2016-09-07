@@ -227,12 +227,12 @@ Ext.define('KitchenSink.store.Demos', {
                     leaf: true,
                     view: 'user-interface.Tabs',
                     id: 'tabs'
-                }/*, {
+                }, {
                     text: 'Bottom Tabs',
                     view: 'user-interface.BottomTabs',
                     leaf: true,
                     id: 'bottom-tabs'
-                }, {
+                }/*, {
                     text: 'Overlays',
                     view: 'user-interface.Overlays',
                     leaf: true,
