@@ -1,0 +1,35 @@
+﻿@{
+    var X = Html.X();
+}
+
+@(
+    X.FormPanel()
+        .Scrollable(ScrollableOption.Both)
+        .Defaults(d =>
+        {
+            d.Add(X.Parameter()
+                .Name("labelWidth")
+                .Value("35%"));
+            d.Add(X.Parameter()
+                .Name("labelAlign")
+                .Value("top"));
+        })
+        .Items(
+            X.Slider()
+                .Name("thumb")
+                .Number(20)
+                .Label("Single Thumb"),
+            X.Slider()
+                .Name("disthumb")
+                .Number(30)
+                .Disabled(true)
+                .Label("Disabled Single Thumb"),
+            X.Slider()
+                .Name("multithumb")
+                .Numbers(new double[] { 10, 70 })
+                .Label("Multiple Thumbs"),
+            X.ToggleField()
+                .Name("toggle")
+                .Label("Toggle")
+        )
+)

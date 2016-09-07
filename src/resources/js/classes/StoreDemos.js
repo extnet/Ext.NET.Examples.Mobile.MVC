@@ -88,12 +88,12 @@ Ext.define('KitchenSink.store.Demos', {
                         leaf: true,
                         view: 'user-interface.forms.FormPanel',
                         id: 'formpanel'
-                    }/*, {
+                    }, {
                         text: 'Sliders',
                         leaf: true,
                         view: 'user-interface.forms.Sliders',
                         id: 'sliders'
-                    }, {
+                    }/*, {
                         text: 'Toolbar Inputs',
                         leaf: true,
                         view: 'user-interface.forms.ToolbarInput',
