@@ -167,6 +167,7 @@
     <Content Include="Views\user-interface\forms\FormPanel.cshtml" />
     <Content Include="Views\user-interface\forms\Sliders.cshtml" />
     <Content Include="Views\user-interface\forms\ToolbarInput.cshtml" />
+    <Content Include="Views\user-interface\forms\PlaceHolderLabel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\ExtNetMobileConfig.cs" />

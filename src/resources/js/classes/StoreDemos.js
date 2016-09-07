@@ -98,12 +98,12 @@ Ext.define('KitchenSink.store.Demos', {
                         leaf: true,
                         view: 'user-interface.forms.ToolbarInput',
                         id: 'toolbarinput'
-                    }/*, {
+                    }, {
                         text: 'PlaceHolderLabel',
                         leaf: true,
                         view: 'user-interface.forms.PlaceHolderLabel',
                         id: 'placeholderlabel'
-                    }*/]
+                    }]
                 }/*, {
                     text: 'DataViews',
                     leaf: false,

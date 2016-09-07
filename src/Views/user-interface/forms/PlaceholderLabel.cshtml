@@ -1,0 +1,40 @@
+﻿@{
+    var X = Html.X();
+}
+
+@(
+    X.FormPanel()
+        .PaddingSpec("2em")
+        .Items(
+            X.TextField()
+                .PlaceHolder("Title")
+                .Plugins(
+                    X.PlaceHolderLabel()
+                ),
+            X.Container()
+                .Layout(LayoutType.HBox)
+                .Defaults(
+                    X.Parameter()
+                        .Name("flex")
+                        .Value("1")
+                        .Mode(ParameterMode.Raw)
+                )
+                .Items(
+                    X.TextField()
+                        .PlaceHolder("Price")
+                        .Plugins(
+                            X.PlaceHolderLabel()
+                        ),
+                    X.TextField()
+                        .PlaceHolder("Specific Location (optional)")
+                        .Plugins(
+                            X.PlaceHolderLabel()
+                        )
+                ),
+            X.TextArea()
+                .PlaceHolder("Description")
+                .Plugins(
+                    X.PlaceHolderLabel()
+                )
+        )
+)
