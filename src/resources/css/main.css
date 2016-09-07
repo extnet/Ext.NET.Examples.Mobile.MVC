@@ -1,0 +1,67 @@
+﻿/* Main Navigation Bar */
+
+.main-navigation-bar {
+    border-color: #000;
+    background-color: #000;
+}
+
+    .main-navigation-bar.x-toolbar .x-title {
+        color: #fff;
+    }
+
+    .main-navigation-bar .x-button {
+        border-color: #444;
+        background-color: #000;
+        color: #fff;
+    }
+
+        .main-navigation-bar .x-button:active,
+        .main-navigation-bar .x-button:focus {
+            border-color: #fff;
+        }
+
+        .main-navigation-bar .x-button .x-button-icon {
+            color: #fff;
+        }
+
+
+/*  Sidebar Menu */
+
+.sidebar-menu {
+    background-color: #000;
+}
+
+    .sidebar-menu.x-right {
+        padding: 25px 0;
+        border-left: none;
+        overflow: auto;
+    }
+
+    .sidebar-menu .separator {
+        height: 1px;
+        margin: 12px 0;
+        overflow: hidden;
+        background: #333;
+    }
+
+    .sidebar-menu .x-button {
+        margin: 30px 25px;
+    }
+
+    .sidebar-menu a {
+        display: block;
+        padding: 10px 25px;
+        color: #bbb;
+        text-decoration: none;
+        white-space: nowrap;
+    }
+
+        .sidebar-menu a:focus,
+        .sidebar-menu a:active {
+            background-color: #2e2e2e;
+            color: #fff;
+        }
+
+        .sidebar-menu a i {
+            margin-right: 7px;
+        }

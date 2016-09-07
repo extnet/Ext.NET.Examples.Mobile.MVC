@@ -19,6 +19,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -151,6 +152,7 @@
     <Content Include="Global.asax" />
     <Content Include="resources\audio\crash.mp3" />
     <Content Include="resources\css\KitchenSink-all.css" />
+    <Content Include="resources\css\main.css" />
     <Content Include="resources\images\bigbuckvideo_cover.jpg" />
     <Content Include="resources\js\classes\SourceOverlay.js" />
     <Content Include="resources\js\classes\StoreDemos.js" />

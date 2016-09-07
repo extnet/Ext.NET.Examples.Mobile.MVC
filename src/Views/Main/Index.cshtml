@@ -3,7 +3,8 @@
 <head>
     <title>Ext.NET Mobile MVC Examples</title>
 
-    <link rel="stylesheet" href="@Url.Content("~/resources/css/KitchenSink-all.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/resources/css/KitchenSink-all.css?v=4.1.0.0")" />
+    <link rel="stylesheet" href="@Url.Content("~/resources/css/main.css?v=4.1.0.0")" />
 
     <style>
         .links-menu {
@@ -16,9 +17,9 @@
             }
     </style>
 
-    <script src="@Url.Content("~/resources/js/classes/StoreDemos.js?v=1")"></script>
-    <script src="@Url.Content("~/resources/js/classes/SourceOverlay.js")"></script>
-    <script src="@Url.Content("~/resources/js/main.js")"></script>
+    <script src="@Url.Content("~/resources/js/classes/StoreDemos.js?v=4.1.0.1")"></script>
+    <script src="@Url.Content("~/resources/js/classes/SourceOverlay.js?v=4.1.0.0")"></script>
+    <script src="@Url.Content("~/resources/js/main.js?v=4.1.0.0")"></script>
 
     <script>
         Ext.dataview.NestedList.override({
@@ -56,12 +57,24 @@
     @(Html.X().Menu()
         .ID("LinksMenu")
         .Side(Direction.Right)
-        .Cls("links-menu")
-        .WidthSpec("40%")
+        .Cls("sidebar-menu")
+        .Scrollable(ScrollableOption.Vertical)
+        .WidthSpec("75%")
         .Items(
-            Html.X().Component().Html("<a href='http://ext.net'>Ext.NET Home</a>"),
-            Html.X().Component().Html("<a href='http://forums.ext.net'>Forums</a>"),
-            Html.X().Component().Html("<a href='http://ext.net/download'>Download</a>")
+            Html.X().Component().Html("<a href='http://mobile.ext.net/'>Mobile Examples</a>"),
+            Html.X().Component().Html("<a href='http://mvc.mobile.ext.net/'>MVC Mobile Examples</a>"),
+            Html.X().Component().Html("<div class='separator'></div>"),
+            Html.X().Component().Html("<a href='http://docs.sencha.com/extjs/6.0/6.0.0-classic/'>EXT JS Documentation</a>"),
+            Html.X().Component().Html("<a href='http://docs.ext.net/'>Ext.NET Documentation</a>"),
+            Html.X().Component().Html("<div class='separator'></div>"),
+            Html.X().Component().Html("<a href='http://forums.ext.net/'>Community Forums</a>"),
+            Html.X().Component().Html("<a href='http://ext.net/faq/'>FAQ</a>"),
+            Html.X().Component().Html("<a href='http://ext.net/contact/'>Contact</a>"),
+            Html.X().Component().Html("<a href='http://ext.net/'>Ext.NET Home</a>"),
+            Html.X().Button()
+                .UI(ButtonUI.Action)
+                .Text("Get Ext.NET")
+                .OnClientTap("window.location='http://ext.net/store';")
         )
     )
 
@@ -73,6 +86,7 @@
         .TemplateWidget(true)
         .Toolbar(Html.X().TitleBar()
             .ID("MainNavigationBar")
+            .Cls("main-navigation-bar")
             .Docked(Dock.Top)
             .Items(
                 Html.X().Button()

@@ -2838,7 +2838,7 @@ html {
 }
 
 #ext-viewport > .x-body > .x-mask {
-    opacity: 0.75;
+    opacity: 0.5;
     background-color: #000;
 }
 
