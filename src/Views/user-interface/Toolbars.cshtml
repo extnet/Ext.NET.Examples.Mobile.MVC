@@ -1,0 +1,56 @@
+﻿@{
+    var X = Html.X();
+}
+
+@(
+ X.Panel()
+        .Cls("card")
+        .Html("Toolbars automatically come with <code>light</code> and <code>dark</code> UIs.")
+        .PreInit(new JFunction()
+        {
+            Handler = @"this.tapHandler = function (button) {
+                          this.setHtml('&lt;span class=action>User tapped ' + button.getText() + '&lt;/span>');
+                      };
+
+                      this.on({
+                          scope: this,
+                          delegate: 'button',
+                          tap: 'tapHandler'
+                      });"
+        })
+        .Items(
+            X.Toolbar()
+                .Docked(Dock.Top)
+                .Scrollable(ScrollableOption.Horizontal)
+                .Items(
+                    X.Button()
+                        .Text("Back")
+                        .UI(ButtonUI.Back),
+                    X.Button()
+                        .Text("Default")
+                        .BadgeText("2"),
+                    X.Button()
+                        .Text("Round")
+                        .UI(ButtonUI.Round),
+                    X.ToolbarSpacer(),
+                    X.SegmentedButton()
+                        .AllowDepress(true)
+                        .Items(
+                            X.Button()
+                                .Text("Option 1")
+                                .Pressed(true),
+                            X.Button()
+                                .Text("Option 2"),
+                            X.Button()
+                                .Text("Option 3")
+                        ),
+                    X.ToolbarSpacer(),
+                    X.Button()
+                        .Text("Action")
+                        .UI(ButtonUI.Action),
+                    X.Button()
+                        .Text("Forward")
+                        .UI(ButtonUI.Forward)
+                )
+        )
+)
