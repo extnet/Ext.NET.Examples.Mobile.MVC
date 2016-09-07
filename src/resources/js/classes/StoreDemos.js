@@ -222,12 +222,12 @@ Ext.define('KitchenSink.store.Demos', {
                     leaf: true,
                     view: 'user-interface.Carousel',
                     id: 'carousel'
-                }/*, {
+                }, {
                     text: 'Tabs',
                     leaf: true,
                     view: 'user-interface.Tabs',
                     id: 'tabs'
-                }, {
+                }/*, {
                     text: 'Bottom Tabs',
                     view: 'user-interface.BottomTabs',
                     leaf: true,
