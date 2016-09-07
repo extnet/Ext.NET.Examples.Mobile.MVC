@@ -156,12 +156,14 @@
     <Content Include="resources\js\classes\StoreDemos.js" />
     <Content Include="resources\js\controller\Main.js" />
     <Content Include="resources\js\controller\phone\Main.js" />
+    <Content Include="resources\js\examples\treelist.js" />
     <Content Include="resources\js\main.js" />
     <Content Include="resources\video\BigBuck.webm" />
     <None Include="Views\media\Audio.cshtml" />
     <None Include="Views\media\Video.cshtml" />
     <Content Include="resources\video\BigBuck.m4v" />
     <Content Include="Web.config" />
+    <Content Include="Views\user-interface\TreeList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\ExtNetMobileConfig.cs" />
@@ -182,6 +184,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
+    <Folder Include="Views\user-interface\forms\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Main\Index.cshtml" />

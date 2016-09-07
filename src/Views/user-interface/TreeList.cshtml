@@ -1,0 +1,113 @@
+﻿@{
+    var X = Html.X();
+}
+
+@(
+    X.Container()
+        .Listeners(l => l.Initialize.Handler = "Ext.net.ResourceMgr.load({url:'resources/js/examples/treelist.js'});")
+        .Items(
+            X.Panel()
+                .ID("TreeListPanel")
+                .Title("TreeList")
+                .LayoutConfig(new VBoxLayoutConfig()
+                {
+                    Align = BoxAlign.Stretch
+                })
+                .Items(
+                    X.Toolbar()
+                        .Docked(Dock.Top)
+                        .Border(false)
+                        .Items(
+                            X.SegmentedButton()
+                                .AllowMultiple(true)
+                                .Items(
+                                    X.Button()
+                                        .ID("NavButton")
+                                        .Text("Nav")
+                                        .Listeners(l => l.PressedChange.Handler="onNavPressedChange();"),
+                                    X.Button()
+                                        .ID("MicroButton")
+                                        .Text("Micro")
+                                        .Listeners(l => l.PressedChange.Handler="onMicroPressedChange();")
+                                )
+                        ),
+                    X.TreeList() // this is not accepted inside a container's Items list
+                        .ID("TreeList1")
+                        .Store( // unable to add a treestore in Razor syntax
+                            X.TreeStore()
+                                .Root( // unable to add a node in Razor syntax
+                                    X.Node()
+                                        .Expanded(true)
+                                        .Children(
+                                            X.Node()
+                                                .Text("Home")
+                                                .IconCls("x-fa fa-home")
+                                                .Children(
+                                                    X.Node()
+                                                        .Text("Messages")
+                                                        .IconCls("x-fa fa-inbox")
+                                                        .Leaf(true),
+                                                    X.Node()
+                                                        .Text("Archive")
+                                                        .IconCls("x-fa fa-database")
+                                                        .Children(
+                                                            X.Node()
+                                                                .Text("First")
+                                                                .IconCls("x-fa fa-music")
+                                                                .Leaf(true),
+                                                            X.Node()
+                                                                .Text("No Icon")
+                                                                .Leaf(true)
+                                                        ),
+                                                    X.Node()
+                                                        .Text("Music")
+                                                        .IconCls("x-fa fa-music")
+                                                        .Leaf(true),
+                                                    X.Node()
+                                                        .Text("Video")
+                                                        .IconCls("x-fa fa-film")
+                                                        .Leaf(true)
+                                                ),
+                                            X.Node()
+                                                .Text("Users")
+                                                .IconCls("x-fa fa-user")
+                                                .Children(
+                                                    X.Node()
+                                                        .Text("Tagged")
+                                                        .IconCls("x-fa fa-tag")
+                                                        .Leaf(true),
+                                                    X.Node()
+                                                        .Text("Inactive")
+                                                        .IconCls("x-fa fa-trash")
+                                                        .Leaf(true)
+                                                ),
+                                            X.Node()
+                                                .Text("Groups")
+                                                .IconCls("x-fa fa-group")
+                                                .Leaf(true),
+                                            X.Node()
+                                                .Text("Settings")
+                                                .IconCls("x-fa fa-wrench")
+                                                .Children(
+                                                    X.Node()
+                                                        .Text("Sharing")
+                                                        .IconCls("x-fa fa-share-alt")
+                                                        .Leaf(true),
+                                                    X.Node()
+                                                        .Text("Network")
+                                                        .IconCls("x-fa fa-signal")
+                                                        .Leaf(true)
+                                                )
+                                        )
+                                )
+                        )
+                        .Listeners(l => l.SelectionChange.Fn = "onSelectionChange"),
+                    X.Component()
+                        .ID("TreeListLog")
+                        .Cls("treelist-log")
+                        .Padding(10)
+                        .Height(50)
+                        .Html("No node selected")
+                )
+        )
+    )
