@@ -232,12 +232,12 @@ Ext.define('KitchenSink.store.Demos', {
                     view: 'user-interface.BottomTabs',
                     leaf: true,
                     id: 'bottom-tabs'
-                }/*, {
+                }, {
                     text: 'Overlays',
                     view: 'user-interface.Overlays',
                     leaf: true,
                     id: 'overlays'
-                }, {
+                }/*, {
                     text: 'Menus',
                     view: 'user-interface.Menus',
                     leaf: true,
