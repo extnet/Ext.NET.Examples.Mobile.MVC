@@ -175,6 +175,7 @@
     <Content Include="Views\user-interface\Tabs.cshtml" />
     <Content Include="Views\user-interface\BottomTabs.cshtml" />
     <Content Include="Views\user-interface\Overlays.cshtml" />
+    <Content Include="Views\user-interface\Menus.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\ExtNetMobileConfig.cs" />

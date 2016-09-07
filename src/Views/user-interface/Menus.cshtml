@@ -1,0 +1,82 @@
+﻿@{
+    var X = Html.X();
+}
+
+@functions {
+    // This just returns the three generic menu items for the menus defined in this example
+    Button[] menuItems()
+    {
+        var X = Html.X();
+        
+        // The JavaScript code for the three buttons is but the same:
+        var menuHiddenJS = "Ext.Viewport.hideMenu(this.up('menu').side);"; 
+        
+        return new Button[]
+        {
+            X.Button()
+                .Text("Settings")
+                .IconCls("x-fa fa-gear")
+                .Handler(menuHiddenJS),
+            X.Button()
+                .Text("New Item")
+                .IconCls("x-fa fa-pencil")
+                .Handler(menuHiddenJS),
+            X.Button()
+                .Text("Star")
+                .IconCls("x-fa fa-star")
+                .Handler(menuHiddenJS)
+        };
+    }
+}
+
+@(
+    X.Container()
+        .Padding(10)
+        .Scrollable(ScrollableOption.Both)
+        .Bin(
+            X.Menu()
+                .Side(Direction.Top)
+                .Items(@menuItems()),
+            X.Menu()
+                .Side(Direction.Bottom)
+                .Cover(false)
+                .Items(@menuItems()),
+            X.Menu()
+                .Side(Direction.Left)
+                .Reveal(true)
+                .Items(@menuItems())
+        )
+        .Defaults(
+            X.Parameter()
+                .Name("margin")
+                .Value("10 0")
+        )
+        .Items(
+            X.Component()
+                .StyleHtmlContent(true)
+                .Margin(0)
+                .Html(@<text>
+                    <b>Ext.Menu</b> allows you to easily display sliding
+                    menus from any side of the screen.<br />
+                    <br />
+                    You can show the menus by either tapping the buttons below,
+                    or by swiping from the edge of the screen.
+                </text>),
+
+            X.Button()
+                .Text("Toggle left menu (reveal)")
+                .Handler("Ext.Viewport.toggleMenu('left');"),
+                
+            X.Button()
+                .Text("Toggle right (links) menu")
+                .Handler("Ext.Viewport.toggleMenu('right');"),
+                
+            X.Button()
+                .Text("Toggle top menu (cover)")
+                .Handler("Ext.Viewport.toggleMenu('top');"),
+                
+            X.Button()
+                .Text("Toggle bottom menu (slide)")
+                .Handler("Ext.Viewport.toggleMenu('bottom');")
+        )
+)
