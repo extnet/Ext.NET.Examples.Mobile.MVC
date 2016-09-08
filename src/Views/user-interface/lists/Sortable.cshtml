@@ -1,0 +1,45 @@
+﻿@{
+    var X = Html.X();
+
+    var data = new List<object>();
+
+    for (int i = 0; i < 5; i++)
+    {
+        data.Add(new
+        {
+            name = "Item " + i
+        });
+    }
+}
+
+@(
+    X.Container()
+        .Layout(LayoutType.VBox)
+        .Items(
+            X.Component()
+                .Html("Tap a gray square and drag")
+                .Margin(10),
+            X.List()
+                .Infinite(true)
+                .Flex(1)
+                .ItemTpl(X.XTemplate()
+                    .Html(@<text>
+                        <span class="x-list-sortablehandle" style="height: 30px; width: 30px; background-color: gray; float: left;"></span>
+                        &nbsp;{name}
+                    </text>)
+                )
+                .Store(X.Store()
+                    .DataSource(data)
+                    .Model(
+                        X.Model()
+                            .Fields(
+                                X.ModelField()
+                                    .Name("name")
+                            )
+                    )
+                )
+                .Plugins(
+                    X.SortableList()
+                )
+        )
+)

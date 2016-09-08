@@ -191,12 +191,12 @@ Ext.define('KitchenSink.store.Demos', {
                             type: 'Company.ashx.cs',
                             path: 'Data/Company.ashx.cs'
                         }]
-                    }, {
+                    }*/, {
                         text: 'Sortable',
                         leaf: true,
                         view: 'user-interface.lists.Sortable',
                         id: 'sortablelist'
-                    }*/]
+                    }]
                 }/*, {
                     text: 'Nested Lists',
                     leaf: false,
