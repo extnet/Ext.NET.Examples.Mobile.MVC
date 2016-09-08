@@ -1,0 +1,17 @@
+﻿@{
+    var X = Html.X();
+
+    var animDirection = Path.GetFileNameWithoutExtension(VirtualPath).Replace("Slide", "");
+}
+@(
+ X.Panel()
+        .Cls("card card1")
+        .Scrollable(ScrollableOption.Both)
+        .Items(
+            X.Container()
+                .Docked(Dock.Top)
+                .Html("Slide " + animDirection + " Animation"),
+            X.Container()
+                .Html(@<text>@Html.Partial("~/Views/animation/Loremipsum.cshtml")</text>)
+        )
+)

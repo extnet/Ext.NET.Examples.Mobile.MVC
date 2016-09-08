@@ -318,7 +318,7 @@ Ext.define('KitchenSink.store.Demos', {
                         path: 'Models/KitchenSink/Person.cs'
                     }]
                 }]
-            }, {
+            }*/, {
                 text: 'Animations',
                 id: 'animations',
                 items: [{
@@ -376,7 +376,7 @@ Ext.define('KitchenSink.store.Demos', {
                             path: 'Examples/animation/slide/LoremIpsum2.ascx'
                         }]
                     }]
-                }, {
+                }/*, {
                     text: 'Fade',
                     id: 'Fade',
                     view: 'animation.Fade',
@@ -523,8 +523,8 @@ Ext.define('KitchenSink.store.Demos', {
                         type: 'LoremIpsum2.ascx',
                         path: 'Examples/animation/slide/LoremIpsum2.ascx'
                     }]
-                }]
-            }, {
+                }*/]
+            }/*, {
                 text: 'Events',
                 id: 'events',
                 items: [{

@@ -161,6 +161,11 @@
     <Content Include="resources\js\examples\treelist.js" />
     <Content Include="resources\js\main.js" />
     <Content Include="resources\video\BigBuck.webm" />
+    <Content Include="Views\animation\Loremipsum.cshtml" />
+    <Content Include="Views\animation\slide\SlideLeft.cshtml" />
+    <Content Include="Views\animation\slide\SlideRight.cshtml" />
+    <Content Include="Views\animation\slide\SlideUp.cshtml" />
+    <Content Include="Views\animation\slide\SlideDown.cshtml" />
     <None Include="Views\media\Audio.cshtml" />
     <None Include="Views\media\Video.cshtml" />
     <Content Include="resources\video\BigBuck.m4v" />
