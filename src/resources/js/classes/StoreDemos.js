@@ -20,6 +20,11 @@ Ext.define('KitchenSink.model.Demo', {
     ]
 });
 
+var loremIpsumContent = {
+    type: 'Loremipsum.cshtml',
+    path: 'Views/animation/Loremipsum.cshtml'
+};
+
 Ext.define('KitchenSink.store.Demos', {
     alias: 'store.Demos',
     extend: 'Ext.data.TreeStore',
@@ -332,10 +337,7 @@ Ext.define('KitchenSink.store.Demos', {
                             type: 'slide'
                         },
                         leaf: true,
-                        otherContent: [{
-                            type: 'LoremIpsum2.ascx',
-                            path: 'Examples/animation/slide/LoremIpsum2.ascx'
-                        }]
+                        otherContent: [loremIpsumContent]
                     }, {
                         text: 'Slide Right',
                         id: 'SlideRight',
@@ -345,10 +347,7 @@ Ext.define('KitchenSink.store.Demos', {
                             direction: 'right'
                         },
                         leaf: true,
-                        otherContent: [{
-                            type: 'LoremIpsum2.ascx',
-                            path: 'Examples/animation/slide/LoremIpsum2.ascx'
-                        }]
+                        otherContent: [loremIpsumContent]
                     }, {
                         text: 'Slide Up',
                         id: 'SlideUp',
@@ -358,10 +357,7 @@ Ext.define('KitchenSink.store.Demos', {
                             direction: 'up'
                         },
                         leaf: true,
-                        otherContent: [{
-                            type: 'LoremIpsum2.ascx',
-                            path: 'Examples/animation/slide/LoremIpsum2.ascx'
-                        }]
+                        otherContent: [loremIpsumContent]
                     }, {
                         text: 'Slide Down',
                         id: 'SlideDown',
@@ -371,12 +367,9 @@ Ext.define('KitchenSink.store.Demos', {
                             direction: 'down'
                         },
                         leaf: true,
-                        otherContent: [{
-                            type: 'LoremIpsum2.ascx',
-                            path: 'Examples/animation/slide/LoremIpsum2.ascx'
-                        }]
+                        otherContent: [loremIpsumContent]
                     }]
-                }/*, {
+                }, {
                     text: 'Fade',
                     id: 'Fade',
                     view: 'animation.Fade',
@@ -385,64 +378,49 @@ Ext.define('KitchenSink.store.Demos', {
                         duration: 500
                     },
                     leaf: true,
-                    otherContent: [{
-                        type: 'LoremIpsum2.ascx',
-                        path: 'Examples/animation/slide/LoremIpsum2.ascx'
-                    }]
+                    otherContent: [loremIpsumContent]
                 }, {
                     text: 'Cover',
                     id: 'Cover',
                     items: [{
                         text: 'Cover Left',
-                        view: 'animation.cover.CoverLeft',
+                        view: 'animation.cover.Left',
                         id: 'CoverLeft',
                         animation: {
                             type: 'cover'
                         },
                         leaf: true,
-                        otherContent: [{
-                            type: 'LoremIpsum2.ascx',
-                            path: 'Examples/animation/slide/LoremIpsum2.ascx'
-                        }]
+                        otherContent: [loremIpsumContent]
                     }, {
                         text: 'Cover Right',
                         id: 'CoverRight',
-                        view: 'animation.cover.CoverRight',
+                        view: 'animation.cover.Right',
                         animation: {
                             type: 'cover',
                             direction: 'right'
                         },
                         leaf: true,
-                        otherContent: [{
-                            type: 'LoremIpsum2.ascx',
-                            path: 'Examples/animation/slide/LoremIpsum2.ascx'
-                        }]
+                        otherContent: [loremIpsumContent]
                     }, {
                         text: 'Cover Up',
-                        view: 'animation.cover.CoverUp',
+                        view: 'animation.cover.Up',
                         id: 'CoverUp',
                         animation: {
                             type: 'cover',
                             direction: 'up'
                         },
                         leaf: true,
-                        otherContent: [{
-                            type: 'LoremIpsum2.ascx',
-                            path: 'Examples/animation/slide/LoremIpsum2.ascx'
-                        }]
+                        otherContent: [loremIpsumContent]
                     }, {
                         text: 'Cover Down',
                         id: 'CoverDown',
-                        view: 'animation.cover.CoverDown',
+                        view: 'animation.cover.Down',
                         animation: {
                             type: 'cover',
                             direction: 'down'
                         },
                         leaf: true,
-                        otherContent: [{
-                            type: 'LoremIpsum2.ascx',
-                            path: 'Examples/animation/slide/LoremIpsum2.ascx'
-                        }]
+                        otherContent: [loremIpsumContent]
                     }]
                 }, {
                     text: 'Reveal',
@@ -450,54 +428,42 @@ Ext.define('KitchenSink.store.Demos', {
                     items: [{
                         text: 'Reveal Left',
                         id: 'RevealLeft',
-                        view: 'animation.reveal.RevealLeft',
+                        view: 'animation.reveal.Left',
                         animation: {
                             type: 'reveal'
                         },
                         leaf: true,
-                        otherContent: [{
-                            type: 'LoremIpsum2.ascx',
-                            path: 'Examples/animation/slide/LoremIpsum2.ascx'
-                        }]
+                        otherContent: [loremIpsumContent]
                     }, {
                         text: 'Reveal Right',
                         id: 'RevealRight',
-                        view: 'animation.reveal.RevealRight',
+                        view: 'animation.reveal.Right',
                         animation: {
                             direction: 'right',
                             type: 'reveal'
                         },
                         leaf: true,
-                        otherContent: [{
-                            type: 'LoremIpsum2.ascx',
-                            path: 'Examples/animation/slide/LoremIpsum2.ascx'
-                        }]
+                        otherContent: [loremIpsumContent]
                     }, {
                         text: 'Reveal Up',
                         id: 'RevealUp',
-                        view: 'animation.reveal.RevealUp',
+                        view: 'animation.reveal.Up',
                         animation: {
                             direction: 'up',
                             type: 'reveal'
                         },
                         leaf: true,
-                        otherContent: [{
-                            type: 'LoremIpsum2.ascx',
-                            path: 'Examples/animation/slide/LoremIpsum2.ascx'
-                        }]
+                        otherContent: [loremIpsumContent]
                     }, {
                         text: 'Reveal Down',
                         id: 'RevealDown',
-                        view: 'animation.reveal.RevealDown',
+                        view: 'animation.reveal.Down',
                         animation: {
                             direction: 'down',
                             type: 'reveal'
                         },
                         leaf: true,
-                        otherContent: [{
-                            type: 'LoremIpsum2.ascx',
-                            path: 'Examples/animation/slide/LoremIpsum2.ascx'
-                        }]
+                        otherContent: [loremIpsumContent]
                     }]
                 }, {
                     text: 'Pop',
@@ -507,10 +473,7 @@ Ext.define('KitchenSink.store.Demos', {
                         type: 'pop'
                     },
                     leaf: true,
-                    otherContent: [{
-                        type: 'LoremIpsum2.ascx',
-                        path: 'Examples/animation/slide/LoremIpsum2.ascx'
-                    }]
+                    otherContent: [loremIpsumContent]
                 }, {
                     text: 'Flip',
                     id: 'Flip',
@@ -519,11 +482,8 @@ Ext.define('KitchenSink.store.Demos', {
                         type: 'flip'
                     },
                     leaf: true,
-                    otherContent: [{
-                        type: 'LoremIpsum2.ascx',
-                        path: 'Examples/animation/slide/LoremIpsum2.ascx'
-                    }]
-                }*/]
+                    otherContent: [loremIpsumContent]
+                }]
             }/*, {
                 text: 'Events',
                 id: 'events',

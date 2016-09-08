@@ -1,7 +1,13 @@
 ﻿@{
     var X = Html.X();
 
-    var animDirection = Path.GetFileNameWithoutExtension(VirtualPath).Replace("Slide", "");
+    // Extract the type of the animation out of the current path
+    var animType = Path.GetDirectoryName(VirtualPath);
+    animType = animType.Remove(0, animType.LastIndexOf('\\') + 1);
+    animType = System.Globalization.CultureInfo.InvariantCulture.TextInfo.ToTitleCase(animType);
+
+    // Extract the direction out of the view name
+    var animDirection = Path.GetFileNameWithoutExtension(VirtualPath);
 }
 @(
  X.Panel()
@@ -10,7 +16,7 @@
         .Items(
             X.Container()
                 .Docked(Dock.Top)
-                .Html("Slide " + animDirection + " Animation"),
+                .Html(animType + " " + animDirection + " Animation"),
             X.Container()
                 .Html(@<text>@Html.Partial("~/Views/animation/Loremipsum.cshtml")</text>)
         )

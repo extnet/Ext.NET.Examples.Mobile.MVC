@@ -1,0 +1,19 @@
+﻿@{
+    var X = Html.X();
+
+    // Anim type in this case is what would be anim direction in the cover/slide/reveal ones
+    var animType = Path.GetFileNameWithoutExtension(VirtualPath).Replace("Slide", "");
+}
+
+@(
+ X.Panel()
+        .Cls("card card1")
+        .Scrollable(ScrollableOption.Both)
+        .Items(
+            X.Container()
+                .Docked(Dock.Top)
+                .Html(animType + " Animation"),
+            X.Container()
+                .Html(@<text>@Html.Partial("~/Views/animation/Loremipsum.cshtml")</text>)
+        )
+)
