@@ -332,7 +332,7 @@ Ext.define('KitchenSink.store.Demos', {
                     items: [{
                         text: 'Slide Left',
                         id: 'SlideLeft',
-                        view: 'animation.slide.SlideLeft',
+                        view: 'animation.slide.Left',
                         animation: {
                             type: 'slide'
                         },
@@ -341,7 +341,7 @@ Ext.define('KitchenSink.store.Demos', {
                     }, {
                         text: 'Slide Right',
                         id: 'SlideRight',
-                        view: 'animation.slide.SlideRight',
+                        view: 'animation.slide.Right',
                         animation: {
                             type: 'slide',
                             direction: 'right'
@@ -351,7 +351,7 @@ Ext.define('KitchenSink.store.Demos', {
                     }, {
                         text: 'Slide Up',
                         id: 'SlideUp',
-                        view: 'animation.slide.SlideUp',
+                        view: 'animation.slide.Up',
                         animation: {
                             type: 'slide',
                             direction: 'up'
@@ -361,7 +361,7 @@ Ext.define('KitchenSink.store.Demos', {
                     }, {
                         text: 'Slide Down',
                         id: 'SlideDown',
-                        view: 'animation.slide.SlideDown',
+                        view: 'animation.slide.Down',
                         animation: {
                             type: 'slide',
                             direction: 'down'
