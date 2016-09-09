@@ -178,6 +178,7 @@
     <Content Include="Views\animation\reveal\Left.cshtml" />
     <Content Include="Views\animation\reveal\Right.cshtml" />
     <Content Include="Views\data\JSONP.cshtml" />
+    <Content Include="Views\binding\Simple.cshtml" />
     <None Include="Views\media\Audio.cshtml" />
     <None Include="Views\media\Video.cshtml" />
     <Content Include="resources\video\BigBuck.m4v" />

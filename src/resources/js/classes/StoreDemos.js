@@ -248,7 +248,7 @@ Ext.define('KitchenSink.store.Demos', {
                     leaf: true,
                     id: 'menus'
                 }]
-            }/*, {
+            }, {
                 text: 'Data Binding',
                 id: 'databinding',
                 items: [{
@@ -256,7 +256,7 @@ Ext.define('KitchenSink.store.Demos', {
                     leaf: true,
                     id: 'binding-simple',
                     view: 'binding.Simple'
-                }, {
+                }/*, {
                     text: 'Two Way',
                     leaf: true,
                     id: 'binding-twoway',
@@ -322,8 +322,8 @@ Ext.define('KitchenSink.store.Demos', {
                         type: 'Person.cs',
                         path: 'Models/KitchenSink/Person.cs'
                     }]
-                }]
-            }*/, {
+                }*/]
+            }, {
                 text: 'Animations',
                 id: 'animations',
                 items: [{
