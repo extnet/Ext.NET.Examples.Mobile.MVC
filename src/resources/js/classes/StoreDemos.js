@@ -510,12 +510,12 @@ Ext.define('KitchenSink.store.Demos', {
                         }]
                     }]
                 }]
-            }, {
+            }*/, {
                 text: 'Touch Events',
                 id: 'touchevents',
                 view: 'touchevents.TouchEvents',
                 leaf: true
-            }, {
+            }/*, {
                 text: 'Data',
                 id: 'data',
                 items: [{

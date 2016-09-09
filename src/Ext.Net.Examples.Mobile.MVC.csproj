@@ -193,6 +193,7 @@
     <Content Include="Views\user-interface\Overlays.cshtml" />
     <Content Include="Views\user-interface\Menus.cshtml" />
     <Content Include="Views\user-interface\lists\Sortable.cshtml" />
+    <Content Include="Views\touchevents\TouchEvents.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\ExtNetMobileConfig.cs" />
