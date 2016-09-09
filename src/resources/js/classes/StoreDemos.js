@@ -256,12 +256,12 @@ Ext.define('KitchenSink.store.Demos', {
                     leaf: true,
                     id: 'binding-simple',
                     view: 'binding.Simple'
-                }/*, {
+                }, {
                     text: 'Two Way',
                     leaf: true,
                     id: 'binding-twoway',
                     view: 'binding.TwoWay'
-                }, {
+                }/*, {
                     text: 'Formulas',
                     leaf: true,
                     id: 'binding-formula',

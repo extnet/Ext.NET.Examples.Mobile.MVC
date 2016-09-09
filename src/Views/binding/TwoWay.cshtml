@@ -1,0 +1,33 @@
+﻿s@{
+    var X = Html.X();
+
+    var model = new
+    {
+        data = new
+        {
+            title = "Default Title"
+        }
+    };
+}
+
+@(
+    X.FormPanel()
+        .ViewModel(model)
+        .Items(
+            X.TitleBar()
+                .Docked(Dock.Top)
+                .BindString("{title}")
+                .Items(
+                    X.Button()
+                        .Text("Random Title")
+                        .Handler("this.up('formpanel').getViewModel().set('title', 'Title ' + Ext.Number.randomInt(0, 1000));")
+                ),
+            X.FieldSet()
+                .Instructions(@<text>Change the text field which will alter the title bar text using binding. The random title button sets the title on the ViewModel, which is propagated to both the field and the title bar text.</text>)
+                .Items(
+                    X.TextField()
+                        .Label("Title")
+                        .BindString("{title}")
+                )
+        )
+)
