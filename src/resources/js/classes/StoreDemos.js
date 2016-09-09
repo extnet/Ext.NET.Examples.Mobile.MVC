@@ -515,15 +515,15 @@ Ext.define('KitchenSink.store.Demos', {
                 id: 'touchevents',
                 view: 'touchevents.TouchEvents',
                 leaf: true
-            }/*, {
+            }, {
                 text: 'Data',
                 id: 'data',
-                items: [{
+                items: [/*{
                     text: 'Nested Loading',
                     view: 'NestedLoading',
                     leaf: true,
                     id: 'nestedloading'
-                }, {
+                }, */{
                     text: 'JSONP',
                     leaf: true,
                     id: 'jsonp',
@@ -537,8 +537,8 @@ Ext.define('KitchenSink.store.Demos', {
                     text: 'Ajax',
                     leaf: true,
                     id: 'ajax'
-                }]
-            }*/, {
+                }*/]
+            }, {
                 text: 'Media',
                 id: 'media',
                 items: [{
