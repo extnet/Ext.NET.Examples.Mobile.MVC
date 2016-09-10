@@ -11,7 +11,10 @@
     .Items(
         X.Container()
             .Flex(1)
-            .LayoutConfig(new HBoxLayoutConfig { Align = BoxAlign.Center })
+            .LayoutConfig(
+                X.HBoxLayoutConfig()
+                    .Align(BoxAlign.Center)
+            )
             .Defaults(new
             {
                 flex = 1,
@@ -85,7 +88,10 @@
 
         X.Container()
             .Flex(1)
-            .LayoutConfig(new HBoxLayoutConfig { Align = BoxAlign.Center })
+            .LayoutConfig(
+                X.HBoxLayoutConfig()
+                    .Align(BoxAlign.Center)
+            )
             .Defaults(new
             {
                 flex = 1,

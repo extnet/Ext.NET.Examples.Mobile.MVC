@@ -8,18 +8,15 @@
         .Cls("card")
         .TabBarConfig(
             X.TabBar()
-                .LayoutConfig(lc => lc.Add(new LayoutConfig()
-                {
-                    CustomConfig =
-                    {
-                        new ConfigItem()
-                        {
-                            Name = "pack",
-                            Value = "Ext.filterPlatform('ie10') ? 'start' : 'center'",
-                            Mode = ParameterMode.Raw
-                        }
-                    }
-                }))
+                .LayoutConfig(
+                    X.LayoutConfig()
+                        .CustomConfig(
+                            X.Parameter()
+                                .Name("pack")
+                                .Value("Ext.filterPlatform('ie10') ? 'start' : 'center'")
+                                .Mode(ParameterMode.Raw)
+                        )
+                )
         )
         .Defaults(
             X.Parameter()
@@ -32,31 +29,31 @@
                 .Title("Tab 1")
                 .Html("By default, tabs are aligned to the top of a view.")
                 .Cls("card")
-                .CustomConfig(c => c.Add(new ConfigItem()
-                {
-                    Name = "iconCls",
-                    Value = "Ext.theme.is.Blackberry || Ext.theme.is.Tizen ? 'home' : null",
-                    Mode = ParameterMode.Raw
-                })),
+                .CustomConfig(
+                    X.Parameter()
+                        .Name("iconCls")
+                        .Value("Ext.theme.is.Blackberry || Ext.theme.is.Tizen ? 'home' : null")
+                        .Mode(ParameterMode.Raw)
+                ),
             X.Panel()
                 .Title("Tab 2")
-                .Html("A TabPanel can use different animations by setting <code>layout.animation.</code>")
+                .Html(@<text>A TabPanel can use different animations by setting <code>layout.animation.</code></text>)
                 .Cls("card")
-                .CustomConfig(c => c.Add(new ConfigItem()
-                {
-                    Name = "iconCls",
-                    Value = "Ext.theme.is.Blackberry || Ext.theme.is.Tizen ? 'organize' : null",
-                    Mode = ParameterMode.Raw
-                })),
+                .CustomConfig(
+                    X.Parameter()
+                        .Name("iconCls")
+                        .Value("Ext.theme.is.Blackberry || Ext.theme.is.Tizen ? 'organize' : null")
+                        .Mode(ParameterMode.Raw)
+                ),
             X.Panel()
                 .Title("Tab 3")
-                .Html("<span class=&quot;action&quot;>User tapped Tab 3</span>")
+                .Html(@<text><span class="action">User tapped Tab 3</span></text>)
                 .Cls("card")
-                .CustomConfig(c => c.Add(new ConfigItem()
-                {
-                    Name = "iconCls",
-                    Value = "Ext.theme.is.Blackberry || Ext.theme.is.Tizen ? 'favorites' : null",
-                    Mode = ParameterMode.Raw
-                }))
+                .CustomConfig(
+                    X.Parameter()
+                        .Name("iconCls")
+                        .Value("Ext.theme.is.Blackberry || Ext.theme.is.Tizen ? 'favorites' : null")
+                        .Mode(ParameterMode.Raw)
+                )
         )
 )

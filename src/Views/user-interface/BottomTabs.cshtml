@@ -4,32 +4,33 @@
 
 @(
     X.TabPanel()
-        .ActiveTabIndex(1)
+        .ActiveTabIndex(0)
         .Cls("card")
         .TabBarConfig(
             X.TabBar()
-                .CustomConfig(c => c.Add(new ConfigItem()
-                {
-                    Name = "platformConfig",
-                    Value = "{ blackberry: { ui: 'dark' } }",
-                    Mode = ParameterMode.Raw
-                }))
-                .LayoutConfig(lc => lc.Add(new LayoutConfig()
-                {
-                    CustomConfig =
-                    {
-                        new ConfigItem()
-                        {
-                            Name = "pack",
-                            Value = "center"
-                        },
-                        new ConfigItem()
-                        {
-                            Name = "align",
-                            Value = "center"
-                        },
-                    }
-                }))
+                .Docked(Dock.Bottom)
+                .CustomConfig(
+                    X.Parameter()
+                        .Name("platformConfig")
+                        .Value("{ blackberry: { ui: 'dark' } }")
+                        .Mode(ParameterMode.Raw)
+                )
+                .LayoutConfig(
+                    X.LayoutConfig()
+                        .CustomConfig(
+                            X.Parameter()
+                                .Name("pack")
+                                .Value("center"),
+                            X.Parameter()
+                                .Name("align")
+                                .Value("center")
+                        )
+                )
+                .Defaults(
+                    X.Parameter()
+                        .Name("iconAlign")
+                        .Value("top")
+                )
         )
         .Defaults(
             X.Parameter()
@@ -40,45 +41,48 @@
         .Items(
             X.Panel()
                 .Title("About")
-                .Html("<p>Docking tabs to the bottom will automatically change their style.</p>")
+                .Html(@<text><p>Docking tabs to the bottom will automatically change their style.</p></text>)
                 .Cls("card")
                 .IconCls("x-fa fa-info-circle"),
             X.Panel()
                 .Title("Favorites")
-                .Html("Badges <em>(like the 4, below)</em> can be added by setting <code>badgeText</code> when creating a tab or by using <code>setBadgeText()</code> on the tab later.")
+                .Html(@<text>Badges <em>(like the 4, below)</em> can be added by setting <code>badgeText</code> when creating a tab or by using <code>setBadgeText()</code> on the tab later.</text>)
                 .Cls("card")
                 .IconCls("x-fa fa-star")
-                .CustomConfig(c => c.Add(new ConfigItem()
-                {
-                    Name = "badgeText",
-                    Value = "4"
-                })),
+                .CustomConfig(
+                    X.Parameter()
+                        .Name("badgeText")
+                        .Value("4")
+                ),
             X.Panel()
                 .ID("tab3")
                 .Title("Downloads")
                 .Html("Badge labels will truncate if the text is wider than the tab.")
                 .Cls("card")
                 .IconCls("x-fa fa-download")
-                .CustomConfig(c => c.Add(new ConfigItem()
-                {
-                    Name = "hidden",
-                    Value = "(Ext.filterPlatform('ie10') && Ext.os.is.Phone) ? true : false",
-                    Mode = ParameterMode.Raw
-                })),
+                .CustomConfig(
+                    X.Parameter()
+                        .Name("hidden")
+                        .Value("(Ext.filterPlatform('ie10') && Ext.os.is.Phone) ? true : false")
+                        .Mode(ParameterMode.Raw),
+                    X.Parameter()
+                        .Name("badgeText")
+                        .Value("Overflow test")
+                ),
             X.Panel()
                 .Title("Settings")
-                .Html("Tabbars are <code>ui:&quot;dark&quot;</code> by default, but also have light variants.")
+                .Html(@<text>Tabbars are <code>ui:"dark"</code> by default, but also have light variants.</text>)
                 .Cls("card")
                 .IconCls("x-fa fa-gear")
-                .CustomConfig(c => c.Add(new ConfigItem()
-                {
-                    Name = "hidden",
-                    Value = "(Ext.filterPlatform('ie10') && Ext.os.is.Phone) ? true : false",
-                    Mode = ParameterMode.Raw
-                })),
+                .CustomConfig(
+                    X.Parameter()
+                        .Name("hidden")
+                        .Value("(Ext.filterPlatform('ie10') && Ext.os.is.Phone) ? true : false")
+                        .Mode(ParameterMode.Raw)
+                ),
             X.Panel()
                 .Title("User")
-                .Html("<span class=&quot;action&quot;>User tapped User</span>")
+                .Html(@<text><span class="action">User tapped User</span></text>)
                 .Cls("card")
                 .IconCls("x-fa fa-user")
         )

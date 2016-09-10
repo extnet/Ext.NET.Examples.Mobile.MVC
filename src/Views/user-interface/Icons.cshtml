@@ -11,15 +11,15 @@
  X.TabPanel()
         .ActiveTabIndex(0)
         .Cls("card")
-        .LayoutConfig(lc => lc.Add(new LayoutConfig()
-        {
-            CustomConfig = { new ConfigItem()
-            {
-                Name = "animation",
-                Value = "{ type: 'slide', duration: 250 }",
-                Mode = ParameterMode.Raw
-            }}
-        }))
+        .LayoutConfig(
+            X.LayoutConfig()
+                .CustomConfig(
+                    X.Parameter()
+                        .Name("animation")
+                        .Value("{ type: 'slide', duration: 250 }")
+                        .Mode(ParameterMode.Raw)
+                )
+        )
         .TabBarConfig(
             X.TabBar()
                 .Docked(Dock.Bottom)
@@ -35,46 +35,50 @@
             X.Panel()
                 .Title("Info")
                 .Cls("card")
-                .Html("Tabs and buttons can display any <a href='http://fortawesome.github.io/Font-Awesome/icons/'>Font Awesome</a> icon using the <code>iconCls</code> config.")
+                .Html(@<text>
+                    Tabs and buttons can display any 
+                    <a href='http://fortawesome.github.io/Font-Awesome/icons/'>Font Awesome</a>
+                    icon using the <code>iconCls</code> config.
+                </text>)
                 .IconCls("x-fa fa-info-circle"),
             X.Panel()
                 .Title("Download")
                 .Cls("card dark")
-                .Html("<span class=&quot;action&quot;>User tapped Download</span>")
+                .Html(@<text><span class=&quot;action&quot;>User tapped Download</span></text>)
                 .IconCls("x-fa fa-download"),
             X.Panel()
                 .Title("Favorites")
                 .Cls("card")
-                .Html("<span class=&quot;action&quot;>User tapped Favorites</span>")
+                .Html(@<text><span class=&quot;action&quot;>User tapped Favorites</span></text>)
                 .IconCls("x-fa fa-star")
-                .CustomConfig(c => c.Add(new ConfigItem()
-                {
-                    Name = "hidden",
-                    Value = "(Ext.filterPlatform('ie10') && Ext.os.is.Phone) ? true : false",
-                    Mode = ParameterMode.Raw
-                })),
+                .CustomConfig(
+                    X.Parameter()
+                        .Name("hidden")
+                        .Value("(Ext.filterPlatform('ie10') && Ext.os.is.Phone) ? true : false")
+                        .Mode(ParameterMode.Raw)
+                ),
             X.Panel()
                 .Title("Bookmarks")
                 .Cls("card dark")
-                .Html("<span class=&quot;action&quot;>User tapped Bookmarks</span>")
+                .Html(@<text><span class=&quot;action&quot;>User tapped Bookmarks</span></text>)
                 .IconCls("x-fa fa-bookmark"),
             X.Panel()
                 .Title("More")
                 .Cls("card")
-                .Html("<span class=&quot;action&quot;>User tapped More</span>")
+                .Html(@<text><span class=&quot;action&quot;>User tapped More</span></text>)
                 .IconCls("x-fa fa-ellipsis-h"),
             X.Toolbar()
                 .Docked(Dock.Top)
                 .UIName("neutral")
-                .LayoutConfig(lc => lc.Add(new LayoutConfig()
-                {
-                    CustomConfig = { new ConfigItem()
-                    {
-                        Name = "pack",
-                        Value = "(Ext.filterPlatform('ie10') && !Ext.os.is.Phone) ? 'start' : 'center'",
-                        Mode = ParameterMode.Raw
-                    }}
-                }))
+                .LayoutConfig(
+                    X.LayoutConfig()
+                        .CustomConfig(
+                            X.Parameter()
+                                .Name("pack")
+                                .Value("(Ext.filterPlatform('ie10') && !Ext.os.is.Phone) ? 'start' : 'center'")
+                                .Mode(ParameterMode.Raw)
+                        )
+                )
                 .Items(
                     X.Button()
                         .IconCls("x-fa fa-check")

@@ -27,7 +27,10 @@
                         .Name("password")
                         .Label("Password")
                         .ClearIcon(true)
-                        .CustomConfig(c => c.Add(new ConfigItem() { Name = "revealable", Value = "true" })),
+                        .CustomConfig(
+                            X.Parameter()
+                                .Name("revealable")
+                                .Value("true")),
                     X.EmailField()
                         .Name("email")
                         .Label("Email")
@@ -108,23 +111,22 @@
                             .Value("purple")
                     ),
                 X.Container()
-                    .Defaults(d =>
-                    {
-                        d.Add(X.Parameter()
+                    .Defaults(
+                        X.Parameter()
                             .Name("style")
-                            .Value("margin: 1em"));
-                        d.Add(X.Parameter()
+                            .Value("margin: 1em"),
+                        X.Parameter()
                             .Name("flex")
                             .Value("1")
-                            .Mode(ParameterMode.Raw));
-                    })
+                            .Mode(ParameterMode.Raw)
+                    )
                     .Items(
                         X.Button()
                             .ID("formToggleBtn")
                             .Text("Disable fields")
                             .UI(ButtonUI.Action)
                             .Scope("this")
-                            .Handler(@"
+                            .Handler(RazorUtils.StringifyTextBlock(@<text>/*<script>//*/
                                 var fieldset1 = Ext.getCmp('fieldset1'),
                                     fieldset2 = Ext.getCmp('fieldset2'),
                                     btn = App.formToggleBtn;
@@ -139,13 +141,18 @@
                                     fieldset2.disable();
                                     btn.hasDisabled = true;
                                     btn.setText('Enable fields');
-                                }")
-                            .CustomConfig(c => c.Add(new ConfigItem()
-                            {
-                                Name = "hasDisabled",
-                                Value = "false",
-                                Mode = ParameterMode.Raw
-                            })),
+                                };
+                                /*</script>*/</text>))
+                            .CustomConfig(
+                                X.Parameter()
+                                    .Name("hasDisabled")
+                                    .Value("false")
+                                    .Mode(ParameterMode.Raw),
+                                X.Parameter()
+                                    .Name("hasDisabled")
+                                    .Value("false")
+                                    .Mode(ParameterMode.Raw)
+                            ),
                         X.Button()
                             .Text("Reset")
                             .UI(ButtonUI.Action)

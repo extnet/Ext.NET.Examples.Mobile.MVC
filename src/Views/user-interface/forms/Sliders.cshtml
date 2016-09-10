@@ -5,15 +5,14 @@
 @(
     X.FormPanel()
         .Scrollable(ScrollableOption.Both)
-        .Defaults(d =>
-        {
-            d.Add(X.Parameter()
+        .Defaults(
+            X.Parameter()
                 .Name("labelWidth")
-                .Value("35%"));
-            d.Add(X.Parameter()
+                .Value("35%"),
+            X.Parameter()
                 .Name("labelAlign")
-                .Value("top"));
-        })
+                .Value("top")
+        )
         .Items(
             X.Slider()
                 .Name("thumb")

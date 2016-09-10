@@ -17,13 +17,11 @@
 }
 
 @(X.Container()
-    .CustomConfig(cc =>
-        cc.Add(new ConfigItem
-        {
-            Name = "layout",
-            Value = "Ext.os.deviceType == 'Phone' ? 'fit' : { type: 'vbox', align: 'center', pack:'center' }",
-            Mode = ParameterMode.Raw
-        })
+    .CustomConfig(
+        X.Parameter()
+            .Name("layout")
+            .Value("Ext.os.deviceType == 'Phone' ? 'fit' : { type: 'vbox', align: 'center', pack:'center' }")
+            .Mode(ParameterMode.Raw)
     )
     .Items(
         X.List()

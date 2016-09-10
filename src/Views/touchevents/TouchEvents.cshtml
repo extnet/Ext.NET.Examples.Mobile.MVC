@@ -2,14 +2,6 @@
     var X = Html.X();
 }
 
-@functions {
-    // This allows returning a plain string out of a @<text></text> block!
-    string StringifyRazorText(Func<object, object> contents)
-    {
-        return contents(null).ToString();
-    }
-}
-
 @(
     X.Container()
         .Layout(LayoutType.Fit)
@@ -31,7 +23,7 @@
                              * context for the click handler above.
                              * We trick Visual Studio to allow syntax highlighting in the JavaScript code.
                              */
-                            Handler = StringifyRazorText(@<text>/*<script>//*/
+                            Handler = RazorUtils.StringifyTextBlock(@<text>/*<script>//*/
                                 this.showTouchPanel = function () {
                                     App.IntroPanel.hide();
                                     App.TouchPanel.show();
@@ -87,7 +79,7 @@
                                 {
                                     // Here scoping the function is not important. The 'touchpad' component
                                     // will know where to find 'onTouchPadEvent' due to the 'scope' argument!
-                                    Handler = StringifyRazorText(@<text>
+                                    Handler = RazorUtils.StringifyTextBlock(@<text>
                                         /* The trick below will allow nice syntax highlighting in VS
                                          * Do not use line comments, only block comments work here.
                                          *<script type="text/javascript">//*/

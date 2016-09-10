@@ -10,11 +10,11 @@
         X.Carousel()
             .Items(
                 X.Component()
-                    .Html("<p>Swipe left to show the next card&hellip;</p>")
+                    .Html(@<text><p>Swipe left to show the next card&hellip;</p></text>)
                     .Cls("card"),
 
                 X.Component()
-                    .Html("<p>You can also tap on either side of the indicators.</p>")
+                    .Html(@<text><p>You can also tap on either side of the indicators.</p></text>)
                     .Cls("card"),
 
                 X.Component()
@@ -27,11 +27,11 @@
             .Direction(CarouselDirection.Vertical)
             .Items(
                 X.Component()
-                    .Html("<p>Carousels can also be vertical <em>(swipe up)&hellip;</p>")
+                    .Html(@<text><p>Carousels can also be vertical <em>(swipe up)&hellip;</em></p></text>)
                     .Cls("card dart"),
 
                 X.Component()
-                    .Html("And can also use <code>UI=&quot;Light&quot;</code>.")
+                    .Html(@<text>And can also use <code>UI="Light"</code>.</text>)
                     .Cls("card dark"),
 
                 X.Component()

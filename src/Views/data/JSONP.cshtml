@@ -2,13 +2,6 @@
     var X = Html.X();
 }
 
-@functions {
-    // This allows returning a plain string out of a @<text></text> block!
-    string StringifyRazorText(Func<object, object> contents)
-    {
-        return contents(null).ToString();
-    }
-}
 @(
     X.Container()
         .Scrollable(ScrollableOption.Both)
@@ -23,7 +16,7 @@
                         .Handler("this.loadJsonP();")
                         .PreInit(new JFunction()
                         {
-                            Handler = StringifyRazorText(@<text>
+                            Handler = RazorUtils.StringifyTextBlock(@<text>
                             /* The trick below will allow nice syntax highlighting in VS
                              * Do not use line comments, only block comments do the trick here.
                              *<script type="text/javascript">                                 //*/
