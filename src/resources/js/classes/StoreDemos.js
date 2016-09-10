@@ -281,7 +281,7 @@ Ext.define('KitchenSink.store.Demos', {
                     leaf: true,
                     id: 'binding-componentstate',
                     view: 'binding.ComponentState'
-                }/*, {
+                }, {
                     text: 'Selection',
                     leaf: true,
                     id: 'binding-selection',
@@ -293,7 +293,7 @@ Ext.define('KitchenSink.store.Demos', {
                         type: 'Person.cs',
                         path: 'Models/KitchenSink/Person.cs'
                     }]
-                }, {
+                }/*, {
                     text: 'Chained Stores',
                     leaf: true,
                     id: 'binding-chainedstores',

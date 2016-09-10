@@ -183,6 +183,7 @@
     <Content Include="Views\binding\Formula.cshtml" />
     <Content Include="Views\binding\TwoWayFormula.cshtml" />
     <Content Include="Views\binding\ComponentState.cshtml" />
+    <Content Include="Views\binding\Selection.cshtml" />
     <None Include="Views\media\Audio.cshtml" />
     <None Include="Views\media\Video.cshtml" />
     <Content Include="resources\video\BigBuck.m4v" />
@@ -204,11 +205,13 @@
   <ItemGroup>
     <Compile Include="App_Start\ExtNetMobileConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Class\KitchenSink\GetPeople.cs" />
     <Compile Include="Controllers\SourceController.cs" />
     <Compile Include="Controllers\MainController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\KitchenSink\Person.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -218,9 +221,7 @@
     <Content Include="App_Readme\Ext.NET.Mobile\LICENSE" />
     <Content Include="App_Readme\Ext.NET.Mobile\CHANGELOG.md" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Views\Main\Index.cshtml" />
   </ItemGroup>

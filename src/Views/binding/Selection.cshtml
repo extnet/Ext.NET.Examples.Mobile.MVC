@@ -1,0 +1,57 @@
+﻿@using Ext.Net.Examples.Mobile.MVC.Class.KitchenSink
+
+@{
+    var X = Html.X();
+
+    var model = new
+    {
+        stores = new
+        {
+            people = new JRawValue("App.Store1")
+        }
+    };
+}
+
+@(
+    X.Container()
+        .ViewModel(model)
+        .LayoutConfig(
+            X.HBoxLayoutConfig()
+                .Align(BoxAlign.Stretch)
+        )
+        .Items(
+            X.List()
+                .Flex(1)
+                .BindString("{people}")
+                .Reference("peopleList")
+                .ItemTpl(
+                    X.XTemplate()
+                        .Html(@<text>{LastName}, {FirstName}</text>)
+                ),
+            X.FormPanel()
+                .Flex(1)
+                .Items(
+                    X.FieldSet()
+                        .Instructions(@<text>
+                            The form is bound to the selection in the list.
+                            As the form fields change, the models in the list are
+                            automatically updated 'with the field input.
+                        </text>)
+                        .Items(
+                            X.TextField()
+                                .Label("First Name")
+                                .LabelAlign(LabelAlign.Top)
+                                .BindString("{peopleList.selection.FirstName}"),
+                            X.TextField()
+                                .Label("Last Name")
+                                .LabelAlign(LabelAlign.Top)
+                                .BindString("{peopleList.selection.LastName}")
+                        )
+                )
+        )
+        .Bin(
+            X.Store()
+                .ID("Store1")
+                .Data(GetPeople.FixedData)
+        )
+)
