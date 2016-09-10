@@ -182,6 +182,7 @@
     <Content Include="Views\binding\TwoWay.cshtml" />
     <Content Include="Views\binding\Formula.cshtml" />
     <Content Include="Views\binding\TwoWayFormula.cshtml" />
+    <Content Include="Views\binding\ComponentState.cshtml" />
     <None Include="Views\media\Audio.cshtml" />
     <None Include="Views\media\Video.cshtml" />
     <Content Include="resources\video\BigBuck.m4v" />

@@ -1,0 +1,34 @@
+﻿@{
+    var X = Html.X();
+}
+
+@(
+    X.FormPanel()
+        .ViewModel(true)
+        .Items(
+            X.FieldSet()
+                .Instructions(@<text>The admin key field is disabled when the admin checkbox is not checked. The high priority field is hidden when the priority is toggled.</text>)
+                .Items(
+                    X.Checkbox()
+                        .Label("Is Admin")
+                        .Reference("isAdmin"),
+                    X.TextField()
+                        .Label("Admin Key")
+                        .Bind(
+                            X.Parameter()
+                                .Name("disabled")
+                                .Value("{!isAdmin.checked}")
+                        ),
+                    X.ToggleField()
+                        .Label("Priority")
+                        .Reference("priority"),
+                    X.TextField()
+                        .Label("High Priority Code")
+                        .Bind(
+                            X.Parameter()
+                                .Name("hidden")
+                                .Value("{!priority.value}")
+                        )
+                )
+        )
+)

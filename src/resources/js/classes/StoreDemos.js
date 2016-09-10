@@ -276,12 +276,12 @@ Ext.define('KitchenSink.store.Demos', {
                     leaf: true,
                     id: 'binding-chainedselect',
                     view: 'binding.ChainedSelect'
-                }, {
+                }*/, {
                     text: 'Component State',
                     leaf: true,
                     id: 'binding-componentstate',
                     view: 'binding.ComponentState'
-                }, {
+                }/*, {
                     text: 'Selection',
                     leaf: true,
                     id: 'binding-selection',
