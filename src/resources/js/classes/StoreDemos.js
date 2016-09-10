@@ -266,12 +266,12 @@ Ext.define('KitchenSink.store.Demos', {
                     leaf: true,
                     id: 'binding-formula',
                     view: 'binding.Formula'
-                }/*, {
+                }, {
                     text: 'Two Way Formulas',
                     leaf: true,
                     id: 'binding-twowayformula',
                     view: 'binding.TwoWayFormula'
-                }, {
+                }/*, {
                     text: 'Chained Select',
                     leaf: true,
                     id: 'binding-chainedselect',

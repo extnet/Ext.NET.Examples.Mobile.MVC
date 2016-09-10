@@ -1,0 +1,50 @@
+﻿@{
+    var X = Html.X();
+
+    var model = new
+    {
+        formulas = new
+        {
+            // The calls to correctFloat here are to preserve the stability
+            // of the values, we don't want precision rounding to cause the
+            // viewmodel to think the data is different.
+            celsius = new
+            {
+                get = new JFunction("return Ext.Number.correctFloat(get('kelvin') - 273.15);", "get"),
+                set = new JFunction("this.set('kelvin', Ext.Number.correctFloat(v + 273.15));", "v")
+            },
+            fahrenheit = new
+            {
+                get = new JFunction("return Ext.Number.correctFloat(get('celsius') * 1.8 + 32);", "get"),
+                set = new JFunction("this.set('celsius', Ext.Number.correctFloat((v - 32) / 1.8));", "v")
+            }
+        },
+        data = new
+        {
+            kelvin = 300.1
+        }
+    };
+}
+
+@(
+    X.FormPanel()
+        .ViewModel(model)
+        .Items(
+            X.FieldSet()
+                .Instructions(@<text>The Celsius value is calculated from Kelvin. When the Celsius value changes, the Kelvin value is updated via the formula. The Fahrenheight value is calculated from Celsius. When the Fahrenheit value changes, the Celsius value is updated via the formula.</text>)
+                .Items(
+                    X.SpinnerField()
+                        .Label("Kelvin °")
+                        .StepValue(0.1)
+                        .BindString("{kelvin}"),
+                    X.SpinnerField()
+                        .Label("Fahrenheit °")
+                        .StepValue(0.1)
+                        .BindString("{fahrenheit}"),
+                    X.SpinnerField()
+                        .Label("Celsius °")
+                        .StepValue(0.1)
+                        .BindString("{celsius}")
+                )
+        )
+)
