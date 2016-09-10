@@ -2,6 +2,14 @@
     var X = Html.X();
 }
 
+@functions {
+    // This allows returning a plain string out of a @<text></text> block!
+    string StringifyRazorText(Func<object, object> contents)
+    {
+        return contents(null).ToString();
+    }
+}
+
 @(
     X.Container()
         .Layout(LayoutType.Fit)
@@ -18,14 +26,18 @@
                         .Handler("this.showTouchPanel();")
                         .PreInit(new JFunction()
                         {
-                            // We will bind the function to the button itself, so it is available on its
-                            // context for the click handler above.
-                            Handler = @"
+                            /* 
+                             * We will bind the function to the button itself, so it is available on its
+                             * context for the click handler above.
+                             * We trick Visual Studio to allow syntax highlighting in the JavaScript code.
+                             */
+                            Handler = StringifyRazorText(@<text>/*<script>//*/
                                 this.showTouchPanel = function () {
                                     App.IntroPanel.hide();
                                     App.TouchPanel.show();
                                 };
-                        "}),
+                            /*</script>*/</text>)
+                        }),
                     X.Component()
                         .Html(@<text>
                             <p>
@@ -75,49 +87,48 @@
                                 {
                                     // Here scoping the function is not important. The 'touchpad' component
                                     // will know where to find 'onTouchPadEvent' due to the 'scope' argument!
-                                    Handler = @"
-                                    var onTouchPadEvent = function (e, target, options) {
-                                        var scroller = App.logger.getScrollable();
+                                    Handler = StringifyRazorText(@<text>
+                                        /* The trick below will allow nice syntax highlighting in VS
+                                         * Do not use line comments, only block comments work here.
+                                         *<script type="text/javascript">//*/
+                                            var onTouchPadEvent = function (e, target, options) {
+                                                var scroller = App.logger.getScrollable();
 
-                                        App.logger.innerHtmlElement.createChild({ html: e.type });
+                                                App.logger.innerHtmlElement.createChild({ html: e.type });
 
-                                        setTimeout(function () {
-                                            scroller.scrollTo(0, scroller.getSize().y - scroller.getClientSize().y);
-                                        }, 50);
-                                    };
+                                                setTimeout(function () {
+                                                    scroller.scrollTo(0, scroller.getSize().y - scroller.getClientSize().y);
+                                                }, 50);
+                                            };
 
-                                    Ext.get('touchpad').on({
-                                        scope: this,
-                                        touchstart: onTouchPadEvent,
-                                        touchend: onTouchPadEvent,
-                                        touchmove: onTouchPadEvent,
-                                        swipe: onTouchPadEvent,
-                                        dragstart: onTouchPadEvent,
-                                        drag: onTouchPadEvent,
-                                        dragendd: onTouchPadEvent,
-                                        tap: onTouchPadEvent,
-                                        singletap: onTouchPadEvent,
-                                        doubletap: onTouchPadEvent,
-                                        longpress: onTouchPadEvent,
-                                        pinch: onTouchPadEvent,
-                                        rotate: onTouchPadEvent
-                                    });
-                                "})
-                        )
-                        .PreInit(new JFunction()
-                        {
-                            Handler = @"
-                                this.initTouchEvents = function () {
-                                };
-                        "}),
+                                            Ext.get('touchpad').on({
+                                                scope: this,
+                                                touchstart: onTouchPadEvent,
+                                                touchend: onTouchPadEvent,
+                                                touchmove: onTouchPadEvent,
+                                                swipe: onTouchPadEvent,
+                                                dragstart: onTouchPadEvent,
+                                                drag: onTouchPadEvent,
+                                                dragendd: onTouchPadEvent,
+                                                tap: onTouchPadEvent,
+                                                singletap: onTouchPadEvent,
+                                                doubletap: onTouchPadEvent,
+                                                longpress: onTouchPadEvent,
+                                                pinch: onTouchPadEvent,
+                                                rotate: onTouchPadEvent
+                                            });
+                                        /*</script>*/
+                                    </text>)
+                                })
+                        ),
                     X.Container()
                         .Layout(LayoutType.Fit)
                         .Flex(1)
                         .Items(
                             X.Toolbar()
                                 .UIName("light")
-                                .Docked(Dock.Top),
-        //.Title("Event Log"),
+                                .Docked(Dock.Top)
+                                .Title("Event Log"),
                             X.Container()
                                 .ID("logger")
                                 .Scrollable(ScrollableOption.Both)
