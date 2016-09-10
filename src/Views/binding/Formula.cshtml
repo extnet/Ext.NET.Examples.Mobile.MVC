@@ -1,0 +1,39 @@
+﻿@{
+    var X = Html.X();
+
+    var model = new
+    {
+        formulas = new
+        {
+            quad = new JFunction("return get('twice') * 2;", "get"),
+            twice = new { get = new JFunction("return get('x') * 2;", "get") }
+        },
+        data = new
+        {
+            x = 1
+        }
+    };
+}
+
+@(
+    X.FormPanel()
+        .ViewModel(model)
+        .Items(
+            X.FieldSet()
+                .Instructions(@<text>As the field changes, the formula calculates the 2x and 4x values.</text>)
+                .Items(
+                    X.SpinnerField()
+                        .Label("Number")
+                        .StepValue(1)
+                        .BindString("{x}"),
+                    X.TextField()
+                        .ReadOnly(true)
+                        .Label("Times 2")
+                        .BindString("{x} * 2 = {twice}"),
+                    X.TextField()
+                        .ReadOnly(true)
+                        .Label("Times 4")
+                        .BindString("{x} * 4 = {quad}")
+                )
+        )
+)
