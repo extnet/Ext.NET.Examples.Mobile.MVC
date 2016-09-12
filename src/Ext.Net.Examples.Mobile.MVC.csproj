@@ -83,7 +83,7 @@
   </ItemGroup>
   <ItemGroup Condition=" ('$(Configuration)|$(Platform)' == 'Debug|AnyCPU') Or ('$(Configuration)|$(Platform)' == 'Release|AnyCPU') ">
     <Reference Include="Ext.Net.Mobile, Version=4.1.0.0, Culture=neutral, PublicKeyToken=1ac231f0ab990856, processorArchitecture=MSIL">
-      <HintPath>..\packages\Ext.NET.Mobile.MVC.4.1.0-beta\lib\net45\Ext.Net.Mobile.dll</HintPath>
+      <HintPath>..\packages\Ext.NET.Mobile.MVC.4.1.0\lib\net45\Ext.Net.Mobile.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Ext.Net.Utilities, Version=2.5.0.0, Culture=neutral, PublicKeyToken=2c34ac34702a3c23, processorArchitecture=MSIL">
