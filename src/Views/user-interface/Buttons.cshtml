@@ -15,11 +15,14 @@
                 X.HBoxLayoutConfig()
                     .Align(BoxAlign.Center)
             )
-            .Defaults(new
-            {
-                flex = 1,
-                margin = 10
-            })
+            .Defaults(
+                X.Parameter()
+                    .Name("flex")
+                    .Value("1"),
+                X.Parameter()
+                    .Name("margin")
+                    .Value("10")
+            )
             .Items(
                 X.Button()
                     .Text("Normal")
@@ -39,11 +42,14 @@
         X.Container()
             .Flex(1)
             .LayoutConfig(new HBoxLayoutConfig { Align = BoxAlign.Center })
-            .Defaults(new
-            {
-                flex = 1,
-                margin = 10
-            })
+            .Defaults(
+                X.Parameter()
+                    .Name("flex")
+                    .Value("1"),
+                X.Parameter()
+                    .Name("margin")
+                    .Value("10")
+            )
             .Items(
                 X.Button()
                     .Text("Action")
@@ -64,11 +70,14 @@
         X.Container()
             .Flex(1)
             .LayoutConfig(new HBoxLayoutConfig { Align = BoxAlign.Center })
-            .Defaults(new
-            {
-                flex = 1,
-                margin = 10
-            })
+            .Defaults(
+                X.Parameter()
+                    .Name("flex")
+                    .Value("1"),
+                X.Parameter()
+                    .Name("margin")
+                    .Value("10")
+            )
             .Items(
                 X.Button()
                     .Text("Decline")
@@ -92,11 +101,14 @@
                 X.HBoxLayoutConfig()
                     .Align(BoxAlign.Center)
             )
-            .Defaults(new
-            {
-                flex = 1,
-                margin = 10
-            })
+            .Defaults(
+                X.Parameter()
+                    .Name("flex")
+                    .Value("1"),
+                X.Parameter()
+                    .Name("margin")
+                    .Value("10")
+            )
             .Items(
                 X.Button()
                     .Text("Confirm")

@@ -8,15 +8,18 @@
         .Cls("card")
         .TabBarConfig(
             X.TabBar()
-                .LayoutConfig(
-                    X.LayoutConfig()
-                        .CustomConfig(
-                            X.Parameter()
-                                .Name("pack")
-                                .Value("Ext.filterPlatform('ie10') ? 'start' : 'center'")
-                                .Mode(ParameterMode.Raw)
-                        )
-                )
+                .LayoutConfig(new LayoutConfig()
+                {
+                    CustomConfig =
+                {
+                    new ConfigItem()
+                    {
+                        Name = "pack",
+                        Value = "Ext.filterPlatform('ie10') ? 'start' : 'center'",
+                        Mode = ParameterMode.Raw
+                    }
+                }
+                })
         )
         .Defaults(
             X.Parameter()

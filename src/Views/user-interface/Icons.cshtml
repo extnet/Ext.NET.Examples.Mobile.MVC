@@ -11,15 +11,18 @@
  X.TabPanel()
         .ActiveTabIndex(0)
         .Cls("card")
-        .LayoutConfig(
-            X.LayoutConfig()
-                .CustomConfig(
-                    X.Parameter()
-                        .Name("animation")
-                        .Value("{ type: 'slide', duration: 250 }")
-                        .Mode(ParameterMode.Raw)
-                )
-        )
+        .LayoutConfig(new LayoutConfig()
+        {
+            CustomConfig =
+            {
+                new ConfigItem()
+                {
+                    Name = "animation",
+                    Value = "{ type: 'slide', duration: 250 }",
+                    Mode = ParameterMode.Raw
+                }
+            }
+        })
         .TabBarConfig(
             X.TabBar()
                 .Docked(Dock.Bottom)
@@ -70,15 +73,18 @@
             X.Toolbar()
                 .Docked(Dock.Top)
                 .UIName("neutral")
-                .LayoutConfig(
-                    X.LayoutConfig()
-                        .CustomConfig(
-                            X.Parameter()
-                                .Name("pack")
-                                .Value("(Ext.filterPlatform('ie10') && !Ext.os.is.Phone) ? 'start' : 'center'")
-                                .Mode(ParameterMode.Raw)
-                        )
-                )
+                .LayoutConfig(new LayoutConfig()
+                {
+                    CustomConfig =
+                    {
+                        new ConfigItem()
+                        {
+                            Name = "pack",
+                            Value = "(Ext.filterPlatform('ie10') && !Ext.os.is.Phone) ? 'start' : 'center'",
+                            Mode = ParameterMode.Raw
+                        }
+                    }
+                })
                 .Items(
                     X.Button()
                         .IconCls("x-fa fa-check")

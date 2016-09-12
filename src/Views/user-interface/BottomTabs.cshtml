@@ -15,17 +15,22 @@
                         .Value("{ blackberry: { ui: 'dark' } }")
                         .Mode(ParameterMode.Raw)
                 )
-                .LayoutConfig(
-                    X.LayoutConfig()
-                        .CustomConfig(
-                            X.Parameter()
-                                .Name("pack")
-                                .Value("center"),
-                            X.Parameter()
-                                .Name("align")
-                                .Value("center")
-                        )
-                )
+                .LayoutConfig(new LayoutConfig()
+                {
+                    CustomConfig =
+                    {
+                        new ConfigItem()
+                        {
+                            Name = "pack",
+                            Value = "center"
+                        },
+                        new ConfigItem()
+                        {
+                            Name = "align",
+                            Value = "center"
+                        }
+                    }
+                })
                 .Defaults(
                     X.Parameter()
                         .Name("iconAlign")

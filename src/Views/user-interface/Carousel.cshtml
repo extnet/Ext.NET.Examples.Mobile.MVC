@@ -5,7 +5,11 @@
 @(X.Container()
     .Cls("cards")
     .LayoutConfig(new VBoxLayoutConfig { Align = BoxAlign.Stretch })
-    .Defaults(new { flex = 1 })
+    .Defaults(
+        X.Parameter()
+            .Name("flex")
+            .Value("1")
+    )
     .Items(
         X.Carousel()
             .Items(

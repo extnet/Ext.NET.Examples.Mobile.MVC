@@ -10,11 +10,7 @@
                 
                 // This is how it has been specified in Sencha example, so we
                 // forced it here although it is not documented
-                .CustomConfig(
-                    X.Parameter()
-                        .Name("pack")
-                        .Value("top")
-                )
+                .CustomConfig(c => c.Add(new ConfigItem() { Name="pack", Value="top" }))
         )
         .Defaults(
             X.Parameter()
@@ -27,7 +23,7 @@
         .Items(
             X.Button()
                 .Text("Action Sheet")
-                .Handler(@<text>/*<script>//*/
+                .Handler(RazorUtils.StringifyTextBlock(@<text>/*<script>//*/
                     var items = [
                         {
                         text: 'Delete draft',
@@ -61,10 +57,10 @@
 
                     Ext.Viewport.add(this.actions);
                     this.actions.show();
-                /*</script>*/</text>),
+                /*</script>*/</text>)),
             X.Button()
                 .Text("Action Sheet")
-                .Handler(@<text>/*<script>//*/
+                .Handler(RazorUtils.StringifyTextBlock(@<text>/*<script>//*/
                     if (!this.overlay) {
                         this.overlay = Ext.Viewport.add({
                             xtype: 'panel',
@@ -99,7 +95,7 @@
                     }
 
                     this.overlay.show();
-                /*</script>*/</text>),
+                /*</script>*/</text>)),
             X.Button()
                 .Text("Alert")
                 .Handler("Ext.Msg.alert('Title', 'The quick brown fox jumped over the lazy dog.', Ext.emptyFn);"),
@@ -111,7 +107,7 @@
                 .Handler("Ext.Msg.confirm('Confirmation', 'Are you sure you want to do that?', Ext.emptyFn);"),
             X.Button()
                 .Text("Picker")
-                .Handler(@<text>/*<script>//*/
+                .Handler(RazorUtils.StringifyTextBlock(@<text>/*<script>//*/
                     if (!this.picker) {
                         this.picker = Ext.Viewport.add({
                             xtype: 'picker',
@@ -131,6 +127,6 @@
                     }
 
                     this.picker.show();
-                /*</script>*/</text>)
+                /*</script>*/</text>))
         )
 )
