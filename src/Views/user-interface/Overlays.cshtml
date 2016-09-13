@@ -27,110 +27,136 @@
         .Items(
             X.Button()
                 .Text("Action Sheet")
-                .Handler(@<text>/*<script>//*/
-                    var items = [
+                .Handler(
+                @<text>
+                    <script>
+                        var items = [
+                            {
+                            text: 'Delete draft',
+                            ui: 'decline',
+                            scope: this,
+                            handler: function() {
+                                this.actions.hide();
+                                Ext.Msg.alert("Feedback dialog", "You have deleted the draft now.");
+                            }
+                        },
                         {
-                        text: 'Delete draft',
-                        ui: 'decline',
-                        scope: this,
-                        handler: function() {
-                            this.actions.hide();
-                        }
-                    },
-                    {
-                        text: 'Save draft',
-                        scope: this,
-                        handler: function() {
-                            this.actions.hide();
-                        }
-                    },
-                    {
-                        xtype: 'button',
-                        text: 'Cancel',
-                        scope: this,
-                        handler: function() {
-                            this.actions.hide();
-                        }
-                    }];
+                            text: 'Save draft',
+                            scope: this,
+                            handler: function() {
+                                this.actions.hide();
+                                Ext.Msg.alert("Feedback dialog", "The draft is saved for posterior editing.");
+                            }
+                        },
+                        {
+                            xtype: 'button',
+                            text: 'Cancel',
+                            scope: this,
+                            handler: function() {
+                                this.actions.hide();
+                                Ext.Msg.alert("Feedback dialog", "No changes have been made.");
+                            }
+                        }];
 
-                    if (!this.actions) {
-                        this.actions = Ext.create('Ext.ActionSheet', {
-                            items: items
-                        });
-                    }
+                        if (!this.actions) {
+                            this.actions = Ext.create('Ext.ActionSheet', {
+                                items: items
+                            });
+                        }
 
-                    Ext.Viewport.add(this.actions);
-                    this.actions.show();
-                /*</script>*/</text>),
+                        Ext.Viewport.add(this.actions);
+                        this.actions.show();
+                    </script>
+                </text>),
             X.Button()
                 .Text("Action Sheet")
-                .Handler(@<text>/*<script>//*/
-                    if (!this.overlay) {
-                        this.overlay = Ext.Viewport.add({
-                            xtype: 'panel',
-                            modal: true,
-                            hideOnMaskTap: true,
-                            showAnimation: {
-                                type: 'popIn',
-                                duration: 250,
-                                easing: 'ease-out'
-                            },
-                            hideAnimation: {
-                                type: 'popOut',
-                                duration: 250,
-                                easing: 'ease-out'
-                            },
-                            centered: true,
-                            width: Ext.filterPlatform('ie10') ? '100%' : (Ext.os.deviceType == 'Phone') ? 260 : 400,
-                            height: Ext.filterPlatform('ie10') ? '30%' : Ext.os.deviceType == 'Phone' ? 220 : 400,
-                            styleHtmlContent: true,
-                            html: '&lt;p&gt;This is a modal, centered and floating panel. hideOnMaskTap is true by default so ' +
-                                'we can tap anywhere outside the overlay to hide it.&lt;/p&gt;',
-                            items: [
-                                {
+                .Handler(
+                @<text>
+                    <script>
+                        if (!this.overlay) {
+                            this.overlay = Ext.Viewport.add({
+                                xtype: 'panel',
+                                modal: true,
+                                hideOnMaskTap: true,
+                                showAnimation: {
+                                    type: 'popIn',
+                                    duration: 250,
+                                    easing: 'ease-out'
+                                },
+                                hideAnimation: {
+                                    type: 'popOut',
+                                    duration: 250,
+                                    easing: 'ease-out'
+                                },
+                                centered: true,
+                                width: Ext.filterPlatform('ie10') ? '100%' : (Ext.os.deviceType == 'Phone') ? 260 : 400,
+                                height: Ext.filterPlatform('ie10') ? '30%' : Ext.os.deviceType == 'Phone' ? 220 : 400,
+                                styleHtmlContent: true,
+                                html: '<p style="text-align: center">This is a modal, centered and floating panel. hideOnMaskTap is true by default so ' +
+                                    'we can tap anywhere outside the overlay to hide it.</p>',
+                                items: [{
                                     docked: 'top',
                                     xtype: 'toolbar',
                                     title: 'Overlay Title'
-                                }
-                            ],
-                            scrollable: true,
-                            padding: 10
-                        });
-                    }
+                                }],
+                                scrollable: true,
+                                padding: 10
+                            });
+                        }
 
-                    this.overlay.show();
-                /*</script>*/</text>),
+                        this.overlay.show();
+                    </script>
+                </text>),
             X.Button()
                 .Text("Alert")
-                .Handler("Ext.Msg.alert('Title', 'The quick brown fox jumped over the lazy dog.', Ext.emptyFn);"),
+                .Handler(
+                @<text>
+                    <script>
+                        Ext.Msg.alert('Title', 'The quick brown fox jumped over the lazy dog.', Ext.emptyFn);
+                    </script>
+                </text>),
             X.Button()
                 .Text("Prompt")
-                .Handler("Ext.Msg.prompt('Welcome!', 'What\\'s your first name?', Ext.emptyFn);"),
+                .Handler(
+                @<text>
+                    <script>
+                        Ext.Msg.prompt('Welcome!', 'What\'s your first name?', Ext.emptyFn);
+                    </script>
+                </text>),
             X.Button()
                 .Text("Confirm")
-                .Handler("Ext.Msg.confirm('Confirmation', 'Are you sure you want to do that?', Ext.emptyFn);"),
+                .Handler(
+                @<text>
+                    <script>
+                        Ext.Msg.confirm('Confirmation', 'Are you sure you want to do that?', Ext.emptyFn);
+                    </script>
+                </text>),
             X.Button()
                 .Text("Picker")
-                .Handler(@<text>/*<script>//*/
-                    if (!this.picker) {
-                        this.picker = Ext.Viewport.add({
-                            xtype: 'picker',
-                            slots: [
-                                {
+                .Handler(
+                @<text>
+                    <script>
+                        if (!this.picker) {
+                            this.picker = Ext.Viewport.add({
+                                xtype: 'picker',
+                                slots: [{
                                     name : 'limit_speed',
                                     title: 'Speed',
-                                    data : [
-                                        {text: '50 KB/s', value: 50},
-                                        {text: '100 KB/s', value: 100},
-                                        {text: '200 KB/s', value: 200},
-                                        {text: '300 KB/s', value: 300}
-                                    ]
-                                }
-                            ]
-                        });
-                    }
+                                    data: [{
+                                        text: '50 KB/s', value: 50
+                                    }, {
+                                        text: '100 KB/s', value: 100
+                                    }, {
+                                        text: '200 KB/s', value: 200
+                                    }, {
+                                        text: '300 KB/s', value: 300
+                                    }]
+                                }]
+                            });
+                        }
 
-                    this.picker.show();
-                /*</script>*/</text>)
+                        this.picker.show();
+                    </script>
+                </text>)
         )
 )

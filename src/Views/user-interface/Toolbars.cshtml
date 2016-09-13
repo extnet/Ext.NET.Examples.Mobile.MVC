@@ -6,9 +6,9 @@
  X.Panel()
         .Cls("card")
         .Html("Toolbars automatically come with <code>light</code> and <code>dark</code> UIs.")
-        .PreInit(new JFunction()
-        {
-            Handler = RazorUtils.StringifyTextBlock(@<text>/*<script>//*/
+        .PreInit(
+        @<text>
+            <script>
                 this.tapHandler = function (button) {
                     this.setHtml('<span class=action>User tapped ' + button.getText() + '</span>');
                 };
@@ -18,8 +18,8 @@
                     delegate: 'button',
                     tap: 'tapHandler'
                 });
-            /*</script>*/</text>)
-        })
+            </script>
+        </text>)
         .Items(
             X.Toolbar()
                 .Docked(Dock.Top)

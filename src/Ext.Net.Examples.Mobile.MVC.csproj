@@ -206,7 +206,6 @@
     <Compile Include="App_Start\ExtNetMobileConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Class\KitchenSink\GetPeople.cs" />
-    <Compile Include="Class\RazorUtils.cs" />
     <Compile Include="Controllers\SourceController.cs" />
     <Compile Include="Controllers\MainController.cs" />
     <Compile Include="Global.asax.cs">

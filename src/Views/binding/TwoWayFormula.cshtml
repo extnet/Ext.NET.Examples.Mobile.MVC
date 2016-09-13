@@ -1,21 +1,34 @@
 ﻿@{
     var X = Html.X();
+    var sourceFormatting = ((GlobalConfig)System.Web.Configuration.WebConfigurationManager.GetSection("extnetmobile")).SourceFormatting;
 
-    var celsiusGetFn = RazorUtils.StringifyTextBlock(@<text>/*<script>//*/
-        return Ext.Number.correctFloat(get('kelvin') - 273.15);
-    /*</script>*/</text>);
+    var celsiusGetFn = MvcUtils.StringifyScriptBlock(
+    @<text>
+        <script>
+            return Ext.Number.correctFloat(get('kelvin') - 273.15);
+        </script>
+    </text>, sourceFormatting);
 
-    var celsiusSetFn = RazorUtils.StringifyTextBlock(@<text>/*<script>//*/
-        this.set('kelvin', Ext.Number.correctFloat(v + 273.15));
-    /*</script>*/</text>);
+    var celsiusSetFn = MvcUtils.StringifyScriptBlock(
+    @<text>
+        <script>
+            this.set('kelvin', Ext.Number.correctFloat(v + 273.15));
+        </script>
+    </text>, sourceFormatting);
 
-    var fahrenGetFn = RazorUtils.StringifyTextBlock(@<text>/*<script>//*/
-        return Ext.Number.correctFloat(get('celsius') * 1.8 + 32);
-    /*</script>*/</text>);
+    var fahrenGetFn = MvcUtils.StringifyScriptBlock(
+    @<text>
+        <script>
+            return Ext.Number.correctFloat(get('celsius') * 1.8 + 32);
+        </script>
+    </text>, sourceFormatting);
 
-    var fahrenSetFn = RazorUtils.StringifyTextBlock(@<text>/*<script>//*/
-        this.set('celsius', Ext.Number.correctFloat((v - 32) / 1.8));
-    /*</script>*/</text>);
+    var fahrenSetFn = MvcUtils.StringifyScriptBlock(
+    @<text>
+        <script>
+            this.set('celsius', Ext.Number.correctFloat((v - 32) / 1.8));
+        </script>
+    </text>, sourceFormatting);
 
     var model = new
     {
@@ -47,7 +60,8 @@
         .ViewModel(model)
         .Items(
             X.FieldSet()
-                .Instructions(@<text>
+                .Instructions(
+                @<text>
                     The Celsius value is calculated from Kelvin. When the Celsius value changes,
                     the Kelvin value is updated via the formula. The Fahrenheight value is calculated
                     from Celsius. When the Fahrenheit value changes, the Celsius value is updated via

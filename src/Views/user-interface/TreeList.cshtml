@@ -9,10 +9,10 @@
             X.Panel()
                 .ID("TreeListPanel")
                 .Title("TreeList")
-                .LayoutConfig(new VBoxLayoutConfig()
-                {
-                    Align = BoxAlign.Stretch
-                })
+                .LayoutConfig(
+                    X.VBoxLayoutConfig()
+                        .Align(BoxAlign.Stretch)
+                )
                 .Items(
                     X.Toolbar()
                         .Docked(Dock.Top)

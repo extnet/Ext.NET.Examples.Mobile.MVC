@@ -14,13 +14,9 @@
                     X.Button()
                         .Text("Load using JSON-P")
                         .Handler("this.loadJsonP();")
-                        .PreInit(new JFunction()
-                        {
-                            Handler = RazorUtils.StringifyTextBlock(@<text>
-                            /* The trick below will allow nice syntax highlighting in VS
-                             * Do not use line comments, only block comments do the trick here.
-                             *<script type="text/javascript">                                 //*/
-
+                        .PreInit(
+                        @<text>
+                            <script type="text/javascript">
                                 this.loadJsonP = function () {
                                     var panel = Ext.getCmp('JSONP'),
                                         tpl = new Ext.XTemplate([
@@ -65,8 +61,8 @@
                                         }
                                     });
                                 };
-                            /*</script>*/</text>)
-                        })
+                            </script>
+                        </text>)
                 )
         )
 )

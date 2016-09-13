@@ -16,22 +16,23 @@
                         .UI(ButtonUI.Confirm)
                         .MarginSpec("0 0 10 0")
                         .Handler("this.showTouchPanel();")
-                        .PreInit(new JFunction()
-                        {
-                            /* 
-                             * We will bind the function to the button itself, so it is available on its
-                             * context for the click handler above.
-                             * We trick Visual Studio to allow syntax highlighting in the JavaScript code.
-                             */
-                            Handler = RazorUtils.StringifyTextBlock(@<text>/*<script>//*/
+                        /*
+                         * We will bind the function to the button itself, so it is available on its
+                         * context for the click handler above.
+                         * We trick Visual Studio to allow syntax highlighting in the JavaScript code.
+                         */
+                        .PreInit(
+                        @<text>
+                            <script type="text/javascript">
                                 this.showTouchPanel = function () {
                                     App.IntroPanel.hide();
                                     App.TouchPanel.show();
                                 };
-                            /*</script>*/</text>)
-                        }),
+                            </script>
+                        </text>),
                     X.Component()
-                        .Html(@<text>
+                        .Html(
+                        @<text>
                             <p>
                                 Ext.NET Mobile comes with a multitude of touch
                                 events available on components. Included touch
@@ -57,32 +58,27 @@
             X.Container()
                 .ID("TouchPanel")
                 .Hidden(true)
-                .LayoutConfig(new VBoxLayoutConfig()
-                {
-                    Pack = BoxPack.Center,
-                    Align = BoxAlign.Stretch
-                })
+                .LayoutConfig(
+                    X.VBoxLayoutConfig()
+                        .Pack(BoxPack.Center)
+                        .Align(BoxAlign.Stretch)
+                )
                 .Items(
                     X.Container()
                         .ID("touchpad")
                         .Flex(1)
                         .Margin(10)
-                        .LayoutConfig(new VBoxLayoutConfig()
-                        {
-                            Pack = BoxPack.Center,
-                            Align = BoxAlign.Stretch
-                        })
+                        .LayoutConfig(
+                            X.VBoxLayoutConfig()
+                                .Pack(BoxPack.Center)
+                                .Align(BoxAlign.Stretch)
+                        )
                         .Items(
                             X.Container()
                                 .Html("Touch here!")
-                                .PreInit(new JFunction()
-                                {
-                                    // Here scoping the function is not important. The 'touchpad' component
-                                    // will know where to find 'onTouchPadEvent' due to the 'scope' argument!
-                                    Handler = RazorUtils.StringifyTextBlock(@<text>
-                                        /* The trick below will allow nice syntax highlighting in VS
-                                         * Do not use line comments, only block comments work here.
-                                         *<script type="text/javascript">//*/
+                                .PreInit(
+                                    @<text>
+                                        <script type="text/javascript">
                                             var onTouchPadEvent = function (e, target, options) {
                                                 var scroller = App.logger.getScrollable();
 
@@ -109,9 +105,9 @@
                                                 pinch: onTouchPadEvent,
                                                 rotate: onTouchPadEvent
                                             });
-                                        /*</script>*/
-                                    </text>)
-                                })
+                                        </script>
+                                    </text>
+                                )
                         ),
                     X.Container()
                         .Layout(LayoutType.Fit)
@@ -126,7 +122,8 @@
                                 .Scrollable(ScrollableOption.Both)
                                 .StyleHtmlContent(true)
                                 .Padding(10)
-                                .Html(@<text>
+                                .Html(
+                                @<text>
                                     <span>Try using gestures on the indicated area to see how events are fired.</span>
                                 </text>)
                         )

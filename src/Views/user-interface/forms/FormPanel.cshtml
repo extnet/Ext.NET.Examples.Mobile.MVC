@@ -126,23 +126,26 @@
                             .Text("Disable fields")
                             .UI(ButtonUI.Action)
                             .Scope("this")
-                            .Handler(RazorUtils.StringifyTextBlock(@<text>/*<script>//*/
-                                var fieldset1 = Ext.getCmp('fieldset1'),
-                                    fieldset2 = Ext.getCmp('fieldset2'),
-                                    btn = App.formToggleBtn;
+                            .Handler(
+                            @<text>
+                                <script>
+                                    var fieldset1 = Ext.getCmp('fieldset1'),
+                                        fieldset2 = Ext.getCmp('fieldset2'),
+                                        btn = App.formToggleBtn;
 
-                                if (btn.hasDisabled) {
-                                    fieldset1.enable();
-                                    fieldset2.enable();
-                                    btn.hasDisabled = false;
-                                    btn.setText('Disable fields');
-                                } else {
-                                    fieldset1.disable();
-                                    fieldset2.disable();
-                                    btn.hasDisabled = true;
-                                    btn.setText('Enable fields');
-                                };
-                                /*</script>*/</text>))
+                                    if (btn.hasDisabled) {
+                                        fieldset1.enable();
+                                        fieldset2.enable();
+                                        btn.hasDisabled = false;
+                                        btn.setText('Disable fields');
+                                    } else {
+                                        fieldset1.disable();
+                                        fieldset2.disable();
+                                        btn.hasDisabled = true;
+                                        btn.setText('Enable fields');
+                                    };
+                                </script>
+                            </text>)
                             .CustomConfig(
                                 X.Parameter()
                                     .Name("hasDisabled")
