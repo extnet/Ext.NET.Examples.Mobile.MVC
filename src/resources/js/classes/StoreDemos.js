@@ -40,16 +40,12 @@ Ext.define('KitchenSink.store.Demos', {
                 text: 'User Interface',
                 id: 'ui',
                 cls: 'launchscreen',
-                items: [/*{
+                items: [{
                     text: 'Tree',
                     leaf: true,
                     view: 'user-interface.TreeList',
-                    id: 'tree-list',
-                    otherContent: [{
-                        type: 'JavaScript',
-                        path: 'resources/js/examples/treelist.js'
-                    }]
-                },*/ {
+                    id: 'tree-list'
+                }, {
                     text: 'Buttons',
                     leaf: true,
                     view: 'user-interface.Buttons',

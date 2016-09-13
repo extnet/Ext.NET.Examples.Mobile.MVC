@@ -3,16 +3,62 @@
 }
 
 @(
-    X.Container()
-        .Listeners(l => l.Initialize.Handler = "Ext.net.ResourceMgr.load({url:'resources/js/examples/treelist.js'});")
+ X.Panel()
+        .ID("TreeListPanel")
+        .Title("TreeList")
+        .LayoutConfig(
+            X.VBoxLayoutConfig()
+                .Align(BoxAlign.Stretch)
+        )
+        .PreInit(
+        @<text>
+            <script>
+                // set it as a global variable
+                window.scripts = {
+                    onMicroPressedChange: function (button, pressed) {
+                        var treelist = App.TreeList1,
+                            navBtn = App.NavButton;
+
+                        treelist.setMicro(pressed);
+
+                        if (pressed) {
+                            navBtn.setPressed(true);
+                            navBtn.disable();
+                            treelist.oldWidth = treelist.getWidth();
+                            treelist.setWidth(44);
+                        } else {
+                            treelist.setWidth(treelist.oldWidth);
+                            navBtn.enable();
+                        }
+                    },
+
+                    onNavPressedChange: function (button, pressed) {
+                        var treelist = App.TreeList1;
+
+                        treelist.setExpanderFirst(!pressed);
+                        treelist.setUi(pressed ? 'nav' : null);
+                    },
+
+                    onSelectionChange: function (treelist, selection) {
+                        var path, text;
+
+                        if (selection) {
+                            path = selection.getPath("text");
+                            path = path.replace(/^\/Root/, "");
+                            text = "Selected: " + path;
+                        } else {
+                            text = "No node selected";
+                        }
+
+                        App.TreeListLog.setHtml(text);
+                    }
+                };
+            </script>
+        </text>)
         .Items(
-            X.Panel()
-                .ID("TreeListPanel")
-                .Title("TreeList")
-                .LayoutConfig(
-                    X.VBoxLayoutConfig()
-                        .Align(BoxAlign.Stretch)
-                )
+            X.Container()
+                .Flex(1)
+                .Scrollable(ScrollableOption.Vertical)
                 .Items(
                     X.Toolbar()
                         .Docked(Dock.Top)
@@ -24,18 +70,18 @@
                                     X.Button()
                                         .ID("NavButton")
                                         .Text("Nav")
-                                        .Listeners(l => l.PressedChange.Handler="onNavPressedChange();"),
+                                        .Listeners(l => l.PressedChange.Handler = "scripts.onNavPressedChange(item, value, oldValue);"),
                                     X.Button()
                                         .ID("MicroButton")
                                         .Text("Micro")
-                                        .Listeners(l => l.PressedChange.Handler="onMicroPressedChange();")
+                                        .Listeners(l => l.PressedChange.Handler = "scripts.onMicroPressedChange(item, value, oldValue);")
                                 )
                         ),
-                    X.TreeList() // this is not accepted inside a container's Items list
+                    X.TreeList()
                         .ID("TreeList1")
-                        .Store( // unable to add a treestore in Razor syntax
+                        .Store(
                             X.TreeStore()
-                                .Root( // unable to add a node in Razor syntax
+                                .Root(
                                     X.Node()
                                         .Expanded(true)
                                         .Children(
@@ -101,13 +147,16 @@
                                         )
                                 )
                         )
-                        .Listeners(l => l.SelectionChange.Fn = "onSelectionChange"),
-                    X.Component()
-                        .ID("TreeListLog")
-                        .Cls("treelist-log")
-                        .Padding(10)
-                        .Height(50)
-                        .Html("No node selected")
-                )
+                        .Listeners(l =>
+                        {
+                            l.SelectionChange.Handler = "scripts.onSelectionChange(tree, selection);";
+                        })
+                ),
+            X.Component()
+                .ID("TreeListLog")
+                .Cls("treelist-log")
+                .Padding(10)
+                .Height(50)
+                .Html("No node selected")
         )
-    )
+)
