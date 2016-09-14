@@ -1,0 +1,39 @@
+﻿@using Ext.Net.Examples.Mobile.MVC.Class;
+@{
+    var X = Html.X();
+}
+@(
+ X.Container()
+        .FullScreen(true)
+        .Layout(LayoutType.Fit)
+        .Cls("ks-basic")
+        .Items(
+            X.DataView()
+                .Scrollable(ScrollableOption.Both)
+                .Cls("dataview-inline")
+                .CustomConfig(
+                    X.Parameter()
+                        .Name("inline")
+                        .Value("true")
+                        .Mode(ParameterMode.Raw)
+                )
+                .ItemTpl(
+                @<text>
+                    <div class="img" style="background-image: url({photo});"></div>
+                </text>)
+                .Store(
+                    X.Store()
+                        .ID("Speakers")
+                        .Data(GetFeeds.getSpeakerList())
+                        .Model(
+                            X.Model()
+                                .Fields(
+                                    X.ModelField().Name("photo"),
+                                    X.ModelField().Name("first_name"),
+                                    X.ModelField().Name("last_name"),
+                                    X.ModelField().Name("affiliation")
+                                )
+                        )
+                )
+        )
+)

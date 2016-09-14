@@ -105,7 +105,7 @@ Ext.define('KitchenSink.store.Demos', {
                         view: 'user-interface.forms.PlaceHolderLabel',
                         id: 'placeholderlabel'
                     }]
-                }/*, {
+                }, {
                     text: 'DataViews',
                     leaf: false,
                     id: 'dataviews',
@@ -146,7 +146,7 @@ Ext.define('KitchenSink.store.Demos', {
                             path: 'Models/KitchenSink/Speaker.cs'
                         }]
                     }]
-                }*/, {
+                }, {
                     text: 'Lists',
                     leaf: false,
                     id: 'lists',

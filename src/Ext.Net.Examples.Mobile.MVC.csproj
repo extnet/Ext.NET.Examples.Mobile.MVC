@@ -184,6 +184,7 @@
     <Content Include="Views\binding\TwoWayFormula.cshtml" />
     <Content Include="Views\binding\ComponentState.cshtml" />
     <Content Include="Views\binding\Selection.cshtml" />
+    <Content Include="resources\feed.json" />
     <None Include="Views\media\Audio.cshtml" />
     <None Include="Views\media\Video.cshtml" />
     <Content Include="resources\video\BigBuck.m4v" />
@@ -201,10 +202,14 @@
     <Content Include="Views\user-interface\Menus.cshtml" />
     <Content Include="Views\user-interface\lists\Sortable.cshtml" />
     <Content Include="Views\touchevents\TouchEvents.cshtml" />
+    <Content Include="Views\user-interface\dataviews\Basic.cshtml" />
+    <Content Include="Views\user-interface\dataviews\Horizontal.cshtml" />
+    <Content Include="Views\user-interface\dataviews\Inline.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\ExtNetMobileConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Class\GetFeeds.cs" />
     <Compile Include="Class\KitchenSink\GetPeople.cs" />
     <Compile Include="Controllers\SourceController.cs" />
     <Compile Include="Controllers\MainController.cs" />
@@ -212,6 +217,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\KitchenSink\Person.cs" />
+    <Compile Include="Models\KitchenSink\Speaker.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
