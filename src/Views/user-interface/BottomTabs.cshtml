@@ -4,11 +4,19 @@
 
 @(
     X.TabPanel()
-        .ActiveTabIndex(0)
+        .ID("tp1")
+        //.ActiveTabIndex(0)
         .Cls("card")
+        .Scrollable(ScrollableOption.Both)
         .TabBarConfig(
             X.TabBar()
+                .ID("tb1")
                 .Docked(Dock.Bottom)
+                .Defaults(
+                    X.Parameter()
+                        .Name("iconAlign")
+                        .Value("top")
+                )
                 .CustomConfig(
                     X.Parameter()
                         .Name("platformConfig")
@@ -21,7 +29,7 @@
                     {
                         new ConfigItem()
                         {
-                            Name = "pack",
+                            Name = "stretch",
                             Value = "center"
                         },
                         new ConfigItem()

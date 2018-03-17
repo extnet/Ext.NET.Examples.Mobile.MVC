@@ -1,0 +1,64 @@
+@using Ext.Net.Mobile;
+@using Ext.Net.Mobile.MVC;
+
+@model Ext.Net.Examples.Mobile.MVC.Models.ExtNetMobileModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Ext.NET Mobile MVC Sample</title>
+</head>
+<body>
+    @Html.X().ResourceManager()
+
+    @(Html.X().Viewport()
+        .Layout(LayoutType.VBox)
+        .Padding(10)
+        .Items(
+            Html.X().Container()
+                .Content(
+                    @<text>
+                        <header>
+                            <a href="http://ext.net/">
+                                <img src="http://speed.ext.net/identity/extnet-logo-small.png" />
+                            </a>
+                        </header>
+
+                        <h1>@Model.Title</h1>
+
+                        <p>Thank you for installing Ext.NET Mobile.</p>
+
+                        <p>You can check that everything is working correctly by submitting a value in the message box below.</p>
+                    </text>
+                ),
+                
+            Html.X().TextArea()
+                .ID("TextArea1")
+                .Label("Message")
+                .LabelWidth(80)
+                .PlaceHolder(Model.TextAreaPlaceHolder)
+                .Height(85)
+                .MarginSpec("10 0 5 0"),
+                
+            Html.X().Button()
+                .Text("Submit")
+                .Icon(Icon.Accept)
+                .DirectEvents(de =>
+                {
+                    de.Tap.Action = "SampleAction";
+                    de.Tap.ExtraParams.Add(new Parameter
+                    {
+                        Name = "message",
+                        Value = "App.TextArea1.getValue()",
+                        Mode = ParameterMode.Raw
+                    });
+                })
+        )
+    )
+</body>
+</html>

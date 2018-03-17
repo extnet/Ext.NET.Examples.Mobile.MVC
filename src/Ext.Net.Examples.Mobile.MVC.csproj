@@ -20,6 +20,7 @@
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -48,6 +49,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Ext.Net.Mobile, Version=4.1.0.0, Culture=neutral, PublicKeyToken=1ac231f0ab990856, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ext.NET.Mobile.MVC.4.1.1\lib\net45\Ext.Net.Mobile.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -82,10 +86,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup Condition=" ('$(Configuration)|$(Platform)' == 'Debug|AnyCPU') Or ('$(Configuration)|$(Platform)' == 'Release|AnyCPU') ">
-    <Reference Include="Ext.Net.Mobile, Version=4.1.0.0, Culture=neutral, PublicKeyToken=1ac231f0ab990856, processorArchitecture=MSIL">
-      <HintPath>..\packages\Ext.NET.Mobile.MVC.4.1.0\lib\net45\Ext.Net.Mobile.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="Ext.Net.Utilities, Version=2.5.0.0, Culture=neutral, PublicKeyToken=2c34ac34702a3c23, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Ext.NET.Utilities.2.5.0\lib\Ext.Net.Utilities.dll</HintPath>
@@ -115,10 +115,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup Condition=" ('$(Configuration)|$(Platform)' == 'Development|AnyCPU') ">
-    <Reference Include="Ext.Net.Mobile, Version=4.1.0.0, Culture=neutral, PublicKeyToken=1ac231f0ab990856, processorArchitecture=MSIL">
-      <HintPath>..\..\Mobile\src\bin\Debug\Ext.Net.Mobile.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="Ext.Net.Utilities, Version=2.5.0.0, Culture=neutral, PublicKeyToken=2c34ac34702a3c23, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Mobile\src\bin\Debug\Ext.Net.Utilities.dll</HintPath>
@@ -184,6 +180,8 @@
     <Content Include="Views\binding\TwoWayFormula.cshtml" />
     <Content Include="Views\binding\ComponentState.cshtml" />
     <Content Include="Views\binding\Selection.cshtml" />
+    <Content Include="Views\ExtNetMobile\Index.cshtml" />
+    <Content Include="App_Readme\Ext.NET.Mobile\LICENSE" />
     <None Include="Views\media\Audio.cshtml" />
     <None Include="Views\media\Video.cshtml" />
     <Content Include="resources\video\BigBuck.m4v" />
@@ -207,11 +205,13 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Class\KitchenSink\GetPeople.cs" />
     <Compile Include="Class\RazorUtils.cs" />
+    <Compile Include="Controllers\ExtNetMobileController.cs" />
     <Compile Include="Controllers\SourceController.cs" />
     <Compile Include="Controllers\MainController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\ExtNetMobileModel.cs" />
     <Compile Include="Models\KitchenSink\Person.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -219,7 +219,6 @@
     <Content Include="Views\Web.config" />
     <Content Include="packages.config" />
     <Content Include="App_Readme\Ext.NET.Mobile\README.md" />
-    <Content Include="App_Readme\Ext.NET.Mobile\LICENSE" />
     <Content Include="App_Readme\Ext.NET.Mobile\CHANGELOG.md" />
   </ItemGroup>
   <ItemGroup />
@@ -267,7 +266,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>58797</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>

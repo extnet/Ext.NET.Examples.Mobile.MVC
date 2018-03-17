@@ -1,6 +1,6 @@
-| Product | Ext.NET Enterprise |
+| Product | Ext.NET Mobile |
 | :---- | :---- |
-| Release Date | 2016-05-10 |
+| Release Date | 2016-09-12 |
 | Current Version | 4.1.0 |
 | Issue Tracker | [Ext.NET](https://github.com/extnet/Ext.NET/issues) on GitHub |
 
@@ -22,22 +22,20 @@
 
 ## 2. Installation Instructions
 
-[Getting Started](https://www.nuget.org/packages/ext.net) (NuGet)
+[Getting Started](https://www.nuget.org/packages/ext.net.mobile)
 
-The easiest and quickest way to install Ext.NET is using [NuGet](https://www.nuget.org/packages/ext.net). Run the following command in Visual Studio Command panel, or seach for "Ext.NET" in NuGet Package Manager.
+The easiest and quickest way to install Ext.NET Mobile is using [NuGet](https://www.nuget.org/packages/ext.net). Run the following command in Visual Studio Command panel, or seach for "Ext.NET" in the NuGet Package Manager.
 
 ```
-Install-Package Ext.NET
+Install-Package Ext.NET.Mobile
 ```
 
 [Getting Started](http://forums.ext.net/showthread.php?11027-Install-and-Setup-Guide-for-Visual-Studio) (Manual Installation with Videos)
 
 ## 3. Revisions and Breaking Changes
 
-See [CHANGELOG.md](https://github.com/extnet/Premium/blob/master/CHANGELOG.md), or view in the Examples Explorers:
-
-[WebForms Examples Explorer](http://examples.ext.net/#/Getting_Started/Release_Documents/README/)
-[MVC Examples Explorer](http://examples.ext.net/#/Getting_Started/Release_Documents/BREAKING_CHANGES/)
+[Mobile Examples Explorer](http://examples.ext.net/)
+[MVC Mobile Examples Explorer](http://mvc.mobile.ext.net/)
 
 
 ## 4. Sample Web.config
@@ -46,47 +44,43 @@ See [CHANGELOG.md](https://github.com/extnet/Premium/blob/master/CHANGELOG.md), 
 <?xml version="1.0"?>
 <configuration>
   <configSections>
-    <section name="extnet" type="Ext.Net.GlobalConfig" requirePermission="false" />
+    <section name="extnetmobile" type="Ext.Net.Mobile.GlobalConfig" requirePermission="false" />
   </configSections>
 
-  <extnet theme="Triton" licenseKey="** Ext.NET LICENSE KEY HERE **" initScriptMode="Linked" />
-  
+  <extnetmobile licenseKey="** Ext.NET Mobile LICENSE KEY HERE **" initScriptMode="Linked" />
+
   <system.web>
     <!-- This httpHandlers config only required if using IIS6 (or lower) -->
     <!--
     <httpHandlers>
-      <add path="*/ext.axd" verb="*" type="Ext.Net.ResourceHandler" validate="false" />
+      <add path="*/ext-mobile.axd" verb="*" type="Ext.Net.Mobile.ResourceHandler" validate="false" />
     </httpHandlers>
     -->
 
     <!-- This httpModules config only required if using IIS6 (or lower) -->
     <!--
     <httpModules>
-      <add name="DirectRequestModule" type="Ext.Net.DirectRequestModule, Ext.Net" />
+      <add name="DirectRequestModule" type="Ext.Net.Mobile.DirectRequestModule, Ext.Net.Mobile" />
     </httpModules>
     -->
 
     <pages>
       <controls>
-        <add assembly="Ext.Net" namespace="Ext.Net" tagPrefix="ext" />
+        <add assembly="Ext.Net.Mobile" namespace="Ext.Net.Mobile" tagPrefix="ext" />
       </controls>
       <namespaces>
-        <add namespace="Ext.Net"/>
-        <!--<add namespace="Ext.Net.MVC"/>-->
-      </namespaces>      
+        <add namespace="Ext.Net.Mobile" />
+      </namespaces>
     </pages>
   </system.web>
-
   <system.webServer>
     <validation validateIntegratedModeConfiguration="false" />
-    
-    <modules>
-      <add name="DirectRequestModule" preCondition="managedHandler" type="Ext.Net.DirectRequestModule, Ext.Net" />
-    </modules>
-    
     <handlers>
-      <add name="DirectRequestHandler" verb="*" path="*/ext.axd" preCondition="integratedMode" type="Ext.Net.ResourceHandler" />
+      <add name="DirectRequestHandler" verb="*" path="*/ext-mobile.axd" preCondition="integratedMode" type="Ext.Net.Mobile.ResourceHandler" />
     </handlers>
+    <modules>
+      <add name="DirectRequestModule" preCondition="managedHandler" type="Ext.Net.Mobile.DirectRequestModule, Ext.Net.Mobile" />
+    </modules>
   </system.webServer>
 
   <runtime>
