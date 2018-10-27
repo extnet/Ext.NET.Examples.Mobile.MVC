@@ -35,7 +35,7 @@ None.
 #### BREAKING CHANGES
 
 
-If you find a Breaking Change, please report in the [forums](http://forums.ext.net/).
+If you find a Breaking Change, please report in the [forums](https://forums.ext.net/).
 
 
-Copyright 2008-2016 [Object.NET](http://object.net/), Inc., All rights reserved.
+Copyright 2008-2018 [Object.NET](https://object.net/), Inc., All rights reserved.
